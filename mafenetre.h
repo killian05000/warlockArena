@@ -67,8 +67,8 @@ class MaFenetre : public QWidget
         void updatePlayerInfo();
 
         Personnage playertype;
-        Mage player1;
-        Guerrier player2;
+        Guerrier player1;
+        Mage player2;
 
         //----Organisation de la page----//
 
