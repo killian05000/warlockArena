@@ -12,15 +12,12 @@ class Personnage
 {
     protected:
       string nom;
-      carac viemax;
       carac vie;
-      carac manamax;
+      carac viemax;
       carac mana;
+      carac manamax;
       carac armure;
-
-      carac bonus;
-
-      //static random_device generator;
+      carac armuremax;
 
     public:
 
@@ -48,14 +45,11 @@ class Personnage
       string infobulleNomAction3;
 
 
-      Personnage(string _nom, const carac _viemax, const carac _manamax, const carac _armure); // rajouter armure, degats, puissance ?
-      Personnage(const Personnage &source);
+      Personnage(string _nom, const carac _viemax, const carac _manamax, const carac _armure);
       virtual ~Personnage();
 
-      virtual void operator=(const Personnage &source);
-
       virtual void action1(Personnage &adversaire);
-      virtual void action2();
+      virtual void action2(Personnage &adversaire);
       virtual void action3(Personnage &adversaire);
 
       void cheatcode_s();

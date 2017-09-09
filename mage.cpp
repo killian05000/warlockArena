@@ -1,35 +1,33 @@
 #include "mage.h"
 
-Mage::Mage(string _nom, const carac _viemax, const carac _manamax, const carac _armure)
-    :Personnage(_nom, _viemax, _manamax, _armure),
-     nomAction1("Boule de Feu"), infobulleNomAction1("Occasione de 300 à 600 degats"),
-     nomAction2("Soin"), infobulleNomAction2("Vous soigne de 350 à 950 pdv et coute 100 pt de mana"),
-     nomAction3("Aura ténébreuse"), infobulleNomAction3("Ocassione de 250 à 1100 degats et vous inflige aussi de -150 à 900 degats")
-{}
+Mage::Mage()
+    :Personnage("", 4000, 500, 0)
+{
+    S1P="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1Mage.jpg";
+    S1APA1="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1AnimMageAction1.jpg";
+    S1APA2="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1AnimMageAction2.jpg";
+    S1APA3="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1AnimMageAction3.jpg";
+    S1PC="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1MageCrown.jpg";
+    S1C="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1Coffin.jpg";
+
+    S2P="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2Mage.jpg";
+    S2APA1="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2AnimMageAction1.jpg";
+    S2APA2="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2AnimMageAction2.jpg";
+    S2APA3="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2AnimMageAction3.jpg";
+    S2PC="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2MageCrown.jpg";
+    S2C="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2Coffin.jpg";
+
+    nomAction1="Boule de Feu";
+    infobulleNomAction1="Occasione de 300 à 600 degats";
+    nomAction2="Soin";
+    infobulleNomAction2="Vous soigne de 350 à 950 pdv et coute 100 pt de mana";
+    nomAction3="Aura ténébreuse";
+    infobulleNomAction3="Ocassione de 250 à 1100 degats et vous inflige"
+                        " aussi de -150 à 900 degats";
+}
 
 Mage::~Mage()
 {}
-
-Mage::Mage(const Mage &source)
-          :Personnage(source.nom, source.viemax, source.manamax, source.armure),
-           nomAction1(source.nomAction1), infobulleNomAction1(source.infobulleNomAction1),
-           nomAction2(source.nomAction2), infobulleNomAction2(source.infobulleNomAction2),
-           nomAction3(source.nomAction2), infobulleNomAction3(source.infobulleNomAction3)
-{}
-
-void Mage::operator =(const Mage &source)
-{
-    nom=source.nom;
-    viemax=source.viemax;
-    manamax=source.manamax;
-    armure=source.armure;
-    nomAction1=source.nomAction1;
-    infobulleNomAction1=source.infobulleNomAction1;
-    nomAction2=source.nomAction2;
-    infobulleNomAction2=source.infobulleNomAction2;
-    nomAction3=source.nomAction2;
-    infobulleNomAction3=source.infobulleNomAction3;
-}
 
 void Mage::action1(Personnage &adversaire)
 {
@@ -44,7 +42,7 @@ void Mage::action1(Personnage &adversaire)
     adversaire.setvie(adversaire.getvie()-degats);
 }
 
-void Mage::action2()
+void Mage::action2(Personnage &adversaire)
 {
     uniform_int_distribution<int> distribution(150,750);
     carac soin = distribution(generator)+200;
@@ -82,7 +80,7 @@ void Mage::action3(Personnage &adversaire)
         contrecoup = vie;
     else if ((vie-contrecoup) > viemax)
         contrecoup = vie-viemax;
-    if ((contrecoup > 0) && (mana <=450))
-        mana+=50;
+    if ((contrecoup > 0) && (mana <=475))
+        mana+=25;
     vie -= contrecoup;
 }

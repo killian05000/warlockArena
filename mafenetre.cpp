@@ -3,7 +3,7 @@
 #include <QDebug>
 
 MaFenetre::MaFenetre(QWidget *parent)
-         : QWidget(parent), playertype("", 4000, 500, 0), player1("", 4000, 500, 0), player2("", 4000, 500, 0)
+         : QWidget(parent), player1(nullptr), player2(nullptr)
 {
     welcomeMessage = new QLabel("Bienvenue dans Warlock Arena !", this);
     welcomeMessage->setAlignment(Qt::AlignCenter);
@@ -43,22 +43,22 @@ MaFenetre::MaFenetre(QWidget *parent)
     //------------Images--------------//
 
     LabelStickman1 = new QLabel(this);
-    stickman1 = new QPixmap(QString::fromStdString(player1.S1P));
-    stickman1animAction1 = new QPixmap(QString::fromStdString(player1.S1APA1));
-    stickman1animAction2 = new QPixmap(QString::fromStdString(player1.S1APA2));
-    stickman1animAction3 = new QPixmap(QString::fromStdString(player1.S1APA3));
-    stickman1crown = new QPixmap(QString::fromStdString(player1.S1PC));
-    stickman1coffin = new QPixmap(QString::fromStdString(player1.S1C));
-    LabelStickman1->setPixmap(*stickman1);
+//    stickman1 = new QPixmap(QString::fromStdString(player1->S1P));
+//    stickman1animAction1 = new QPixmap(QString::fromStdString(player1->S1APA1));
+//    stickman1animAction2 = new QPixmap(QString::fromStdString(player1->S1APA2));
+//    stickman1animAction3 = new QPixmap(QString::fromStdString(player1->S1APA3));
+//    stickman1crown = new QPixmap(QString::fromStdString(player1->S1PC));
+//    stickman1coffin = new QPixmap(QString::fromStdString(player1->S1C));
+//    LabelStickman1->setPixmap(*stickman1);
 
     LabelStickman2= new QLabel(this);
-    stickman2 = new QPixmap(QString::fromStdString(player2.S2P));
-    stickman2animAction1 = new QPixmap(QString::fromStdString(player2.S2APA1));
-    stickman2animAction2 = new QPixmap(QString::fromStdString(player2.S2APA2));
-    stickman2animAction3 = new QPixmap(QString::fromStdString(player2.S2APA3));
-    stickman2crown = new QPixmap(QString::fromStdString(player2.S2PC));
-    stickman2coffin = new QPixmap(QString::fromStdString(player2.S2C));
-    LabelStickman2->setPixmap(*stickman2);
+//    stickman2 = new QPixmap(QString::fromStdString(player2->S2P));
+//    stickman2animAction1 = new QPixmap(QString::fromStdString(player2->S2APA1));
+//    stickman2animAction2 = new QPixmap(QString::fromStdString(player2->S2APA2));
+//    stickman2animAction3 = new QPixmap(QString::fromStdString(player2->S2APA3));
+//    stickman2crown = new QPixmap(QString::fromStdString(player2->S2PC));
+//    stickman2coffin = new QPixmap(QString::fromStdString(player2->S2C));
+//    LabelStickman2->setPixmap(*stickman2);
 
     //--------Affichage des carac-------//
 
@@ -73,13 +73,13 @@ MaFenetre::MaFenetre(QWidget *parent)
     pdvbarj1 = new QProgressBar(this);
     pdvbarj1->setOrientation(Qt::Vertical);
     pdvbarj1->setStyleSheet("selection-background-color: #3ADF00;");
-    pdvbarj1->setMaximum(playertype.getviemax());
+//    pdvbarj1->setMaximum(player1->getviemax());
     manaj1 = new QLabel(this);
     manaj1->setStyleSheet("color : #357AB7");
     manabarj1 = new QProgressBar(this);
     manabarj1->setOrientation(Qt::Vertical);
     manabarj1->setStyleSheet("selection-background-color: #357AB7");
-    manabarj1->setMaximum(playertype.getmanamax());
+//    manabarj1->setMaximum(player1->getmanamax());
     armurej1 = new QLabel(this);
     armurej1->setStyleSheet("color: #FF8000;");
 
@@ -89,14 +89,14 @@ MaFenetre::MaFenetre(QWidget *parent)
     pdvbarj2 = new QProgressBar(this);
     pdvbarj2->setOrientation(Qt::Vertical);
     pdvbarj2->setStyleSheet("selection-background-color: #3ADF00;");
-    pdvbarj2->setMaximum(playertype.getviemax());
+//    pdvbarj2->setMaximum(player2->getviemax());
     manaj2 = new QLabel(this);
     manaj2->setStyleSheet("color : #357AB7");
     manaj2->setAlignment(Qt::AlignRight);
     manabarj2 = new QProgressBar(this);
     manabarj2->setOrientation(Qt::Vertical);
     manabarj2->setStyleSheet("selection-background-color: #357AB7");
-    manabarj2->setMaximum(playertype.getmanamax());
+//    manabarj2->setMaximum(player2->getmanamax());
     armurej2 = new QLabel(this);
     armurej2->setAlignment(Qt::AlignRight);
     armurej2->setStyleSheet("color : #FF8000");
@@ -139,25 +139,25 @@ MaFenetre::MaFenetre(QWidget *parent)
     //----------Les compétences------------//
 
     player1Action1 = new QPushButton(this);
-    player1Action1->setText(QString::fromStdString(player1.nomAction1));
-    player1Action1->setToolTip(QString::fromStdString(player1.infobulleNomAction1));
+//    player1Action1->setText(QString::fromStdString(player1->nomAction1));
+//    player1Action1->setToolTip(QString::fromStdString(player1->infobulleNomAction1));
     player2Action1 = new QPushButton(this);
-    player2Action1->setText(QString::fromStdString(player2.nomAction1));
-    player2Action1->setToolTip(QString::fromStdString(player2.infobulleNomAction1));
+//    player2Action1->setText(QString::fromStdString(player2->nomAction1));
+//    player2Action1->setToolTip(QString::fromStdString(player2->infobulleNomAction1));
 
     player1Action2 = new QPushButton(this);
-    player1Action2->setText(QString::fromStdString(player1.nomAction2));
-    player1Action2->setToolTip(QString::fromStdString(player1.infobulleNomAction2));
+//    player1Action2->setText(QString::fromStdString(player1->nomAction2));
+//    player1Action2->setToolTip(QString::fromStdString(player1->infobulleNomAction2));
     player2Action2 = new QPushButton(this);
-    player2Action2->setText(QString::fromStdString(player2.nomAction2));
-    player2Action2->setToolTip(QString::fromStdString(player2.infobulleNomAction2));
+//    player2Action2->setText(QString::fromStdString(player2->nomAction2));
+//    player2Action2->setToolTip(QString::fromStdString(player2->infobulleNomAction2));
 
     player1Action3 = new QPushButton(this);
-    player1Action3->setText(QString::fromStdString(player1.nomAction3));
-    player1Action3->setToolTip(QString::fromStdString(player1.infobulleNomAction3));
+//    player1Action3->setText(QString::fromStdString(player1->nomAction3));
+//    player1Action3->setToolTip(QString::fromStdString(player1->infobulleNomAction3));
     player2Action3 = new QPushButton(this);
-    player2Action3->setText(QString::fromStdString(player2.nomAction3));
-    player2Action3->setToolTip(QString::fromStdString(player2.infobulleNomAction3));
+//    player2Action3->setText(QString::fromStdString(player2->nomAction3));
+//    player2Action3->setToolTip(QString::fromStdString(player2->infobulleNomAction3));
 
     reset = new QPushButton("recommencer", this);
     precedent = new QPushButton(" précédent ", this);
@@ -218,12 +218,11 @@ MaFenetre::MaFenetre(QWidget *parent)
 
     //-------------------------Bontons utilisateur-----------------------------//
 
-    connect(boutonValider, &QPushButton::clicked, this, &MaFenetre::setnomplayer1);
-    connect(boutonValider, &QPushButton::clicked, this, &MaFenetre::setnomplayer2);
-    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
-    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
-    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
-    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
+    connect(boutonValider, &QPushButton::clicked, this, &MaFenetre::createPlayers);
+//    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
+//    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
+//    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
+//    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
 
 
     connect(player1Action1, &QPushButton::clicked, this, &MaFenetre::funcplayer1Action1);
@@ -261,38 +260,71 @@ MaFenetre::MaFenetre(QWidget *parent)
     connect(timerj2Action3off, &QTimer::timeout, this, &MaFenetre::updatePlayerInfo);
     connect(timerbeforedead, &QTimer::timeout, this, &MaFenetre::funcbeforedead);
 
-//    int P1G=1;
-//    //funcSetP2G();
-//    if (P1G==1)
-//        player1 = Guerrier player1("",5000,400,400);
+    //funcquicommence();
+    //updatePlayerInfo();
+}
+
+void MaFenetre::createPlayers()
+{
+
+    if (champSelectj1->currentText()=="Guerrier")
+        player1 = new Guerrier();
+    else if (champSelectj1->currentText()=="Mage")
+        player1 = new Mage();
+
+    if (champSelectj2->currentText()=="Guerrier")
+        player2 = new Guerrier();
+    else if (champSelectj2->currentText()=="Mage")
+        player2 = new Mage();
+
+
+    stickman1 = new QPixmap(QString::fromStdString(player1->S1P));
+    stickman1animAction1 = new QPixmap(QString::fromStdString(player1->S1APA1));
+    stickman1animAction2 = new QPixmap(QString::fromStdString(player1->S1APA2));
+    stickman1animAction3 = new QPixmap(QString::fromStdString(player1->S1APA3));
+    stickman1crown = new QPixmap(QString::fromStdString(player1->S1PC));
+    stickman1coffin = new QPixmap(QString::fromStdString(player1->S1C));
+    LabelStickman1->setPixmap(*stickman1);
+
+    stickman2 = new QPixmap(QString::fromStdString(player2->S2P));
+    stickman2animAction1 = new QPixmap(QString::fromStdString(player2->S2APA1));
+    stickman2animAction2 = new QPixmap(QString::fromStdString(player2->S2APA2));
+    stickman2animAction3 = new QPixmap(QString::fromStdString(player2->S2APA3));
+    stickman2crown = new QPixmap(QString::fromStdString(player2->S2PC));
+    stickman2coffin = new QPixmap(QString::fromStdString(player2->S2C));
+    LabelStickman2->setPixmap(*stickman2);
+
+
+    pdvbarj1->setMaximum(player1->getviemax());
+    manabarj1->setMaximum(player1->getmanamax());
+    pdvbarj2->setMaximum(player2->getviemax());
+    manabarj2->setMaximum(player2->getmanamax());
+
+
+    player1Action1->setText(QString::fromStdString(player1->nomAction1));
+    player1Action1->setToolTip(QString::fromStdString(player1->infobulleNomAction1));
+    player1Action2->setText(QString::fromStdString(player1->nomAction2));
+    player1Action2->setToolTip(QString::fromStdString(player1->infobulleNomAction2));
+    player1Action3->setText(QString::fromStdString(player1->nomAction3));
+    player1Action3->setToolTip(QString::fromStdString(player1->infobulleNomAction3));
+
+    player2Action1->setText(QString::fromStdString(player2->nomAction1));
+    player2Action1->setToolTip(QString::fromStdString(player2->infobulleNomAction1));
+    player2Action2->setText(QString::fromStdString(player2->nomAction2));
+    player2Action2->setToolTip(QString::fromStdString(player2->infobulleNomAction2));
+    player2Action3->setText(QString::fromStdString(player2->nomAction3));
+    player2Action3->setToolTip(QString::fromStdString(player2->infobulleNomAction3));
+
+    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
+    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
+    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
+    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
+
+    setnomplayer1();
+    setnomplayer2();
+
     funcquicommence();
     updatePlayerInfo();
-}
-
-int MaFenetre::funcSetP1G()
-{
-    int P1G=1;
-    qDebug() << "ca passe bien dans P1G";
-    return P1G;
-}
-
-Guerrier MaFenetre::funcSetP2G()
-{
-    Guerrier player2("jean", 3000, 200, 50);
-    return player2;
-}
-
-Mage MaFenetre::funcSetP1M()
-{
-    Mage player1("Hug", 4000, 0, 0);
-    qDebug() << "ca passe bien dans P1M";
-    return player1;
-}
-
-Mage MaFenetre::funcSetP2M()
-{
-    Mage player2("Giselle", 4500, 900, 1);
-    return player2;
 }
 
 //--------Anim du player 1--------//
@@ -351,88 +383,78 @@ void MaFenetre::funcquicommence()
 
 void MaFenetre::setnomplayer1()
 {
-    player1.setnom(pseudo1->text().toStdString());
+    player1->setnom(pseudo1->text().toStdString());
     SLayout->setCurrentIndex(1);
     updatePlayerInfo();
 }
 
 void MaFenetre::setnomplayer2()
 {
-    player2.setnom(pseudo2->text().toStdString());
+    player2->setnom(pseudo2->text().toStdString());
     SLayout->setCurrentIndex(1);
     updatePlayerInfo();
 }
 
 void MaFenetre::affectpdvbarj1()
 {
-    pdvbarj1->setValue(player1.getvie());
+    pdvbarj1->setValue(player1->getvie());
 }
 
 void MaFenetre::affectpdvbarj2()
 {
-    pdvbarj2->setValue(player2.getvie());
+    pdvbarj2->setValue(player2->getvie());
 }
 
 void MaFenetre::affectmanabarj1()
 {
-    manabarj1->setValue(player1.getmana());
+    manabarj1->setValue(player1->getmana());
 }
 
 void MaFenetre::affectmanabarj2()
 {
-    manabarj2->setValue(player2.getmana());
+    manabarj2->setValue(player2->getmana());
 }
 
 void MaFenetre::funcplayer1Action1()
 {
-    if ((player1.getnom().find('k') != player1.getnom().npos) && (player1.getnom().find('x') != player1.getnom().npos))
-    {
-        player1.setbonus(300);
-        //player1.cheatcode_os(player2);
-    }
-    player1.action1(player2);
+    player1->action1(*player2);
     timerj1Action1->start(100);
     updatePlayerInfo();
 }
 
 void MaFenetre::funcplayer2Action1()
 {
-    if ((player2.getnom().find('k') != player2.getnom().npos) && (player2.getnom().find('x') != player2.getnom().npos))
-    {
-        player2.setbonus(300);
-        //player2.cheatcode_os(player1);
-    }
-    player2.action1(player1);
+    player2->action1(*player1);
     timerj2Action1->start(100);
     updatePlayerInfo();
 }
 
 void MaFenetre::funcplayer1Action2()
 {
-    player1.action2();
-    //player1.manacost();
+    player1->action2(*player2);
+    //player1->manacost();
     timerj1Action2->start(100);
     updatePlayerInfo();
 }
 
 void MaFenetre::funcplayer2Action2()
 {
-    player2.action2();
-    //player2.manacost();
+    player2->action2(*player1);
+    //player2->manacost();
     timerj2Action2->start(100);
     updatePlayerInfo();
 }
 
 void MaFenetre::funcplayer1Action3()
 {
-    player1.action3(player2);
+    player1->action3(*player2);
     timerj1Action3->start(100);
     updatePlayerInfo();
 }
 
 void MaFenetre::funcplayer2Action3()
 {
-    player2.action3(player1);
+    player2->action3(*player1);
     timerj2Action3->start(100);
     updatePlayerInfo();
 }
@@ -447,12 +469,12 @@ void MaFenetre::funcprecedent()
 
 void MaFenetre::funcreset()
 {
-    player1.setvie(playertype.getviemax());
-    player1.setmana(playertype.getmanamax());
-    player2.setvie(playertype.getviemax());
-    player2.setmana(playertype.getmanamax());
-    player1.setarmure(playertype.getarmure());
-    player2.setarmure(playertype.getarmure());
+    player1->setvie(player1->getviemax());
+    player1->setmana(player1->getmanamax());
+    player1->setarmure(player1->getarmure());
+    player2->setvie(player2->getviemax());
+    player2->setmana(player2->getmanamax());
+    player2->setarmure(player2->getarmure());
 
     player1Action1->setEnabled(1);
     player1Action2->setEnabled(1);
@@ -479,13 +501,13 @@ void MaFenetre::endactionplayer1()
     player2Action2->setDisabled(1);
     player2Action3->setDisabled(1);
 
-    if ((player2.getvie() !=0) && (player1.getvie() != 0))
+    if ((player2->getvie() !=0) && (player1->getvie() != 0))
     {
         player2Action1->setEnabled(1);
         player2Action3->setEnabled(1);
     }
 
-    if((player2.getmana() !=0) && (player2.getvie() < playertype.getviemax()) && (player2.getvie() != 0) && (player1.getvie() != 0))
+    if((player2->getmana() !=0) && (player2->getvie() < player2->getviemax()) && (player2->getvie() != 0) && (player1->getvie() != 0))
         player2Action2->setEnabled(1);
 }
 
@@ -499,63 +521,61 @@ void MaFenetre::endactionplayer2()
     player1Action2->setDisabled(1);
     player1Action3->setDisabled(1);
 
-    if ((player1.getvie() != 0) && (player2.getvie() != 0))
+    if ((player1->getvie() != 0) && (player2->getvie() != 0))
     {
         player1Action1->setEnabled(1);
         player1Action3->setEnabled(1);
     }
 
-    if((player1.getmana() != 0) && (player1.getvie() < playertype.getviemax()) && (player1.getvie() !=0) && (player2.getvie() != 0))
+    if((player1->getmana() != 0) && (player1->getvie() < player1->getviemax()) && (player1->getvie() !=0) && (player2->getvie() != 0))
         player1Action2->setEnabled(1);
 }
 
 void MaFenetre::updatePlayerInfo()
 {
-    displayPseudo1->setText(QString::fromStdString(player1.getnom()));
-    pdvj1->setText(QString::number(player1.getvie()));
-    manaj1->setText(QString::number(player1.getmana()));
-    armurej1->setText(QString::number(player1.getarmure()));
-    player1.setbonus(0);
+    displayPseudo1->setText(QString::fromStdString(player1->getnom()));
+    pdvj1->setText(QString::number(player1->getvie()));
+    manaj1->setText(QString::number(player1->getmana()));
+    armurej1->setText(QString::number(player1->getarmure()));
     affectpdvbarj1();
     affectmanabarj1();
 
 
-    displayPseudo2->setText(QString::fromStdString(player2.getnom()));
-    pdvj2->setText(QString::number(player2.getvie()));
-    manaj2->setText(QString::number(player2.getmana()));
-    armurej2->setText(QString::number(player2.getarmure()));
-    player2.setbonus(0);
+    displayPseudo2->setText(QString::fromStdString(player2->getnom()));
+    pdvj2->setText(QString::number(player2->getvie()));
+    manaj2->setText(QString::number(player2->getmana()));
+    armurej2->setText(QString::number(player2->getarmure()));
     affectpdvbarj2();
     affectmanabarj2();
 
-    if((((double)player1.getvie()/playertype.getviemax())*100.) >= 60.)
+    if((((double)player1->getvie()/player1->getviemax())*100.) >= 60.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #3ADF00;");
         //pdvj1->setStyleSheet("color : #3ADF00");
     }
-    if((((double)player2.getvie()/playertype.getviemax())*100.) >= 60.)
+    if((((double)player2->getvie()/player2->getviemax())*100.) >= 60.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #3ADF00;");
         //pdvj2->setStyleSheet("color : #3ADF00");
     }
 
-    if((((double)player1.getvie()/playertype.getviemax())*100.) < 60.)
+    if((((double)player1->getvie()/player1->getviemax())*100.) < 60.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #FFFF00;");
         //pdvj1->setStyleSheet("color : #FFFF00");
     }
-    if((((double)player2.getvie()/playertype.getviemax())*100.) < 60.)
+    if((((double)player2->getvie()/player2->getviemax())*100.) < 60.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #FFFF00;");
         //pdvj2->setStyleSheet("color : #FFFF00");
     }
 
-    if((((double)player1.getvie()/playertype.getviemax())*100.) < 25.)
+    if((((double)player1->getvie()/player1->getviemax())*100.) < 25.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #FF0000;");
         //pdvj1->setStyleSheet("color : #FF0000");
     }
-    if((((double)player2.getvie()/playertype.getviemax())*100.) < 25.)
+    if((((double)player2->getvie()/player2->getviemax())*100.) < 25.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #FF0000;");
         //pdvj2->setStyleSheet("color : #FF0000");
@@ -566,26 +586,26 @@ void MaFenetre::updatePlayerInfo()
 
 void MaFenetre::funcbeforedead()
 {
-    if((player1.getvie() == 0) && (player2.getvie() == 0))
+    if((player1->getvie() == 0) && (player2->getvie() == 0))
     {
         LabelStickman1->setPixmap(*stickman1coffin);
         LabelStickman2->setPixmap(*stickman2coffin);
-        player1.setarmure(0);
-        player2.setarmure(0);
+        player1->setarmure(0);
+        player2->setarmure(0);
     }
-    else if (player2.getvie() == 0)
+    else if (player2->getvie() == 0)
     {
         LabelStickman1->setPixmap(*stickman1crown);
         LabelStickman2->setPixmap(*stickman2coffin);
-        player1.setarmure(0);
-        player2.setarmure(0);
+        player1->setarmure(0);
+        player2->setarmure(0);
     }
-    else if (player1.getvie() == 0)
+    else if (player1->getvie() == 0)
     {
         LabelStickman2->setPixmap(*stickman2crown);
         LabelStickman1->setPixmap(*stickman1coffin);
-        player1.setarmure(0);
-        player2.setarmure(0);
+        player1->setarmure(0);
+        player2->setarmure(0);
     }
     else
     {

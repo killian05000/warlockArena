@@ -27,6 +27,9 @@ class MaFenetre : public QWidget
         explicit MaFenetre(QWidget *parent = 0);
 
     public slots:
+
+        void createPlayers();
+
         void setnomplayer1();
         void setnomplayer2();
 
@@ -57,18 +60,12 @@ class MaFenetre : public QWidget
         void funcanimj2Action3();
         void funcbeforedead();
 
-        int funcSetP1G();
-        Guerrier funcSetP2G();
-        Mage funcSetP1M();
-        Mage funcSetP2M();
-
     private:
 
         void updatePlayerInfo();
 
-        Personnage playertype;
-        Guerrier player1;
-        Mage player2;
+        Personnage *player1;
+        Personnage *player2;
 
         //----Organisation de la page----//
 
@@ -145,8 +142,6 @@ class MaFenetre : public QWidget
 
         QPushButton *reset;
         QPushButton *precedent;
-
-
 };
 
 #endif // DEF_MAFENETRE

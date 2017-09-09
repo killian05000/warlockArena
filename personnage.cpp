@@ -15,82 +15,10 @@ Personnage::Personnage(const string _nom, const carac _viemax, const carac _mana
 Personnage::~Personnage()
 {}
 
-Personnage::Personnage(const Personnage &source)
-          :nom(source.nom), viemax(source.viemax), manamax(source.manamax), armure(source.armure),
-           nomAction1(source.nomAction1), infobulleNomAction1(source.infobulleNomAction1),
-           nomAction2(source.nomAction2), infobulleNomAction2(source.infobulleNomAction2),
-           nomAction3(source.nomAction2), infobulleNomAction3(source.infobulleNomAction3)
-{}
-
-void Personnage::operator =(const Personnage &source)
-{
-    nom=source.nom;
-    viemax=source.viemax;
-    manamax=source.manamax;
-    armure=source.armure;
-    nomAction1=source.nomAction1;
-    infobulleNomAction1=source.infobulleNomAction1;
-    nomAction2=source.nomAction2;
-    infobulleNomAction2=source.infobulleNomAction2;
-    nomAction3=source.nomAction2;
-    infobulleNomAction3=source.infobulleNomAction3;
-}
-
-
-
-//void Personnage::action1(Personnage &adversaire)
-//{
-//  uniform_int_distribution<int> distribution(0,100);
-//  carac degats = distribution(generator)+400+bonus;
-//  if(adversaire.vie < degats)
-//    degats = adversaire.vie;
-//  if(adversaire.armure < degats)
-//  {
-//      degats -= adversaire.armure;
-//      adversaire.vie -= degats;
-//  }
-//}
-
-//void Personnage::action2()
-//{
-//  uniform_int_distribution<int> distribution(150,850);
-//  carac soin = distribution(generator)+400;
-
-//  int manacost=100;
-
-//  if (mana < 100)
-//  {
-//      manacost = mana;
-//      soin = 0;
-//  }
-//  else if ((vie+soin) > viemax)
-//      soin = viemax-vie;
-
-//  vie += soin;
-//  mana -= manacost;
-//}
-
-//void Personnage::action3(Personnage &adversaire)
-//{
-//  uniform_int_distribution<int> distribution(50,950);
-//  carac degats = distribution(generator)+200;
-//  if(adversaire.vie < degats)
-//    degats = adversaire.vie;
-//  adversaire.vie -= degats;
-
-//  uniform_int_distribution<int> distribution2(-150,900);
-//  int contrecoup = distribution2(generator);
-//  if (int (vie) < contrecoup)
-//    contrecoup = vie;
-//  if ((vie-contrecoup) > viemax)
-//      contrecoup = vie-viemax;
-//  vie -= contrecoup;
-//}
-
 void Personnage::action1(Personnage &adversaire)
 {}
 
-void Personnage::action2()
+void Personnage::action2(Personnage &adversaire)
 {}
 
 void Personnage::action3(Personnage &adversaire)
@@ -155,10 +83,4 @@ void Personnage::setmana(carac _mana)
 void Personnage::setarmure(carac _armure)
 {
     armure = _armure;
-}
-
-void Personnage::setbonus(carac _bonus)
-{
-
-    bonus = _bonus;
 }
