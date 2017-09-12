@@ -27,14 +27,10 @@ MaFenetre::MaFenetre(QWidget *parent)
     champSelectj1 = new QComboBox(this);
     champSelectj1->addItem("Guerrier");
     champSelectj1->addItem("Mage");
-    champSelectj1->addItem("Sorcier");
-    champSelectj1->addItem("Assasin");
 
     champSelectj2 = new QComboBox(this);
     champSelectj2->addItem("Guerrier");
     champSelectj2->addItem("Mage");
-    champSelectj2->addItem("Sorcier");
-    champSelectj2->addItem("Assasin");
 
     boutonValider = new QPushButton("Valider", this);
     boutonValider->setFont(QFont("Comic sans ms", 12));
