@@ -12,3 +12,6 @@ HEADERS += \
     personnage.h \
     guerrier.h \
     mage.h
+
+RESOURCES += \
+    ressources.qrc

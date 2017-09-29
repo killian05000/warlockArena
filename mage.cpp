@@ -3,19 +3,19 @@
 Mage::Mage()
     :Personnage("", 4000, 500, 0)
 {
-    S1P="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1Mage.jpg";
-    S1APA1="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1AnimMageAction1.jpg";
-    S1APA2="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1AnimMageAction2.jpg";
-    S1APA3="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1AnimMageAction3.jpg";
-    S1PC="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1MageCrown.jpg";
-    S1C="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman1Coffin.jpg";
+    S1P=":/Files/Images/Mage/stickman1Mage.jpg";
+    S1APA1=":/Files/Images/Mage/stickman1AnimMageAction1.jpg";
+    S1APA2=":/Files/Images/Mage/stickman1AnimMageAction2.jpg";
+    S1APA3=":/Files/Images/Mage/stickman1AnimMageAction3.jpg";
+    S1PC=":/Files/Images/Mage/stickman1MageCrown.jpg";
+    S1C=":/Files/Images/Mage/stickman1Coffin.jpg";
 
-    S2P="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2Mage.jpg";
-    S2APA1="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2AnimMageAction1.jpg";
-    S2APA2="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2AnimMageAction2.jpg";
-    S2APA3="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2AnimMageAction3.jpg";
-    S2PC="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2MageCrown.jpg";
-    S2C="/home/killian/Documents/GitHub/warlockArena/Images/Mage/stickman2Coffin.jpg";
+    S2P=":/Files/Images/Mage/stickman2Mage.jpg";
+    S2APA1=":/Files/Images/Mage/stickman2AnimMageAction1.jpg";
+    S2APA2=":/Files/Images/Mage/stickman2AnimMageAction2.jpg";
+    S2APA3=":/Files/Images/Mage/stickman2AnimMageAction3.jpg";
+    S2PC=":/Files/Images/Mage/stickman2MageCrown.jpg";
+    S2C=":/Files/Images/Mage/stickman2Coffin.jpg";
 
     nomAction1="Boule de Feu";
     infobulleNomAction1="Occasione de 300 à 600 degats";

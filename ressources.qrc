@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/Files">
+        <file>Images/Mage/stickman2MageCrown.jpg</file>
+        <file>Images/Mage/stickman2Mage.jpg</file>
+        <file>Images/Mage/stickman2Coffin.jpg</file>
+        <file>Images/Mage/stickman2AnimMageAction3.jpg</file>
+        <file>Images/Mage/stickman2AnimMageAction2.jpg</file>
+        <file>Images/Mage/stickman2AnimMageAction1.jpg</file>
+        <file>Images/Mage/stickman1MageCrown.jpg</file>
+        <file>Images/Mage/stickman1Mage.jpg</file>
+        <file>Images/Mage/stickman1Coffin.jpg</file>
+        <file>Images/Mage/stickman1AnimMageAction3.jpg</file>
+        <file>Images/Mage/stickman1AnimMageAction2.jpg</file>
+        <file>Images/Mage/stickman1AnimMageAction1.jpg</file>
+        <file>Images/Guerrier/stickman2GuerrierCrown.jpg</file>
+        <file>Images/Guerrier/stickman2Guerrier.jpg</file>
+        <file>Images/Guerrier/stickman2Coffin.jpg</file>
+        <file>Images/Guerrier/stickman2AnimGuerrierAction3.jpg</file>
+        <file>Images/Guerrier/stickman2AnimGuerrierAction2.jpg</file>
+        <file>Images/Guerrier/stickman2AnimGuerrierAction1.jpg</file>
+        <file>Images/Guerrier/stickman1GuerrierCrown.jpg</file>
+        <file>Images/Guerrier/stickman1Guerrier.jpg</file>
+        <file>Images/Guerrier/stickman1Coffin.jpg</file>
+        <file>Images/Guerrier/stickman1AnimGuerrierAction3.jpg</file>
+        <file>Images/Guerrier/stickman1AnimGuerrierAction2.jpg</file>
+        <file>Images/Guerrier/stickman1AnimGuerrierAction1.jpg</file>
+    </qresource>
+</RCC>

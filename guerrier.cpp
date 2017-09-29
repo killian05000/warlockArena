@@ -3,19 +3,19 @@
 Guerrier::Guerrier()
         :Personnage("", 6000, 300, 50)
 {
-    S1P="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman1Guerrier.jpg";
-    S1APA1="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman1AnimGuerrierAction1.jpg";
-    S1APA2="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman1AnimGuerrierAction2.jpg";
-    S1APA3="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman1AnimGuerrierAction3.jpg";
-    S1PC="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman1GuerrierCrown.jpg";
-    S1C="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman1Coffin.jpg";
+    S1P=":/Files/Images/Guerrier/stickman1Guerrier.jpg";
+    S1APA1=":/Files/Images/Guerrier/stickman1AnimGuerrierAction1.jpg";
+    S1APA2=":/Files/Images/Guerrier/stickman1AnimGuerrierAction2.jpg";
+    S1APA3=":/Files/Images/Guerrier/stickman1AnimGuerrierAction3.jpg";
+    S1PC=":/Files/Images/Guerrier/stickman1GuerrierCrown.jpg";
+    S1C=":/Files/Images/Guerrier/stickman1Coffin.jpg";
 
-    S2P="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman2Guerrier.jpg";
-    S2APA1="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman2AnimGuerrierAction1.jpg";
-    S2APA2="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman2AnimGuerrierAction2.jpg";
-    S2APA3="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman2AnimGuerrierAction3.jpg";
-    S2PC="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman2GuerrierCrown.jpg";
-    S2C="/home/killian/Documents/GitHub/warlockArena/Images/Guerrier/stickman2Coffin.jpg";
+    S2P=":/Files/Images/Guerrier/stickman2Guerrier.jpg";
+    S2APA1=":/Files/Images/Guerrier/stickman2AnimGuerrierAction1.jpg";
+    S2APA2=":/Files/Images/Guerrier/stickman2AnimGuerrierAction2.jpg";
+    S2APA3=":/Files/Images/Guerrier/stickman2AnimGuerrierAction3.jpg";
+    S2PC=":/Files/Images/Guerrier/stickman2GuerrierCrown.jpg";
+    S2C=":/Files/Images/Guerrier/stickman2Coffin.jpg";
 
     nomAction1="Attaquer";
     infobulleNomAction1="Ocassione de 400 à 500 dommages";
