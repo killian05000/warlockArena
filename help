@@ -1,0 +1,49 @@
+-----Guerrier-----
+passif : regen de vie
+1] coup d'épée
+2] renforcement
+3] rage
+R] épée du jugement
+PV: 6 000
+Mana : 0
+Armure : 50
+
+-----Mage-----
+passif : 
+1] boule de feu
+2] soin
+3] faux spectral
+R] libérationa rcanique
+PV: 3 000
+Mana : 500
+Armure : 0
+
+-----Sorcier-----
+passif : 
+1] drain vital
+2] sacrifice
+3] rayon sanguin
+R] rituel de sang
+PV: 3 000
+Mana : 300
+Armure : 0
+
+-----Chaman----- 
+passif : quête totémique
+1] totem de feu
+2] totem de la nature
+3] totem obscure
+R] appel des esprits
+PV: 5 000
+Mana : 300
+Armure : 0
+
+-----Dueliste-----
+passif : 
+1] coup d'estoc
+2] parade
+3] sens aiguisé
+R] danse de lame
+PV: 4 000
+Mana : 0
+Armure : 20
