@@ -18,6 +18,7 @@
 #include <QProgressBar>
 #include <QTimer>
 #include <QComboBox>
+#include <QKeyEvent>
 
 class MaFenetre : public QWidget
 {
@@ -59,6 +60,8 @@ class MaFenetre : public QWidget
         void funcanimj2Action2();
         void funcanimj2Action3();
         void funcbeforedead();
+
+        void keyPressEvent(QKeyEvent *event);
 
     private:
 

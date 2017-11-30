@@ -18,6 +18,7 @@ class Personnage
       carac manamax;
       carac armure;
       carac armuremax;
+      carac turn;
 
     public:
 
@@ -72,6 +73,9 @@ class Personnage
       void setmana(carac _mana);
       void setarmure(carac _armure);
       void setbonus(carac _bonus);
+
+      bool isTurn();
+      void setIsTurn(bool T);
 };
 
 #endif // DEF_PERSONNAGE

@@ -90,3 +90,13 @@ void Personnage::setarmure(carac _armure)
 {
     armure = _armure;
 }
+
+bool Personnage::isTurn()
+{
+    return turn;
+}
+
+void Personnage::setIsTurn(bool T)
+{
+    turn = T;
+}

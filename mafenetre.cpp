@@ -409,6 +409,7 @@ void MaFenetre::funcplayer1Action1()
 {
     player1->action1(*player2);
     timerj1Action1->start(100);
+    endactionplayer1();
     updatePlayerInfo();
 }
 
@@ -416,6 +417,7 @@ void MaFenetre::funcplayer2Action1()
 {
     player2->action1(*player1);
     timerj2Action1->start(100);
+    endactionplayer2();
     updatePlayerInfo();
 }
 
@@ -482,6 +484,9 @@ void MaFenetre::funcreset()
 
 void MaFenetre::endactionplayer1()
 {
+    player1->setIsTurn(false);
+    player2->setIsTurn(true);
+
     player1Action1->setDisabled(1);
     player1Action2->setDisabled(1);
     player1Action3->setDisabled(1);
@@ -503,6 +508,9 @@ void MaFenetre::endactionplayer1()
 
 void MaFenetre::endactionplayer2()
 {
+    player2->setIsTurn(false);
+    player1->setIsTurn(true);
+
     player2Action1->setDisabled(1);
     player2Action2->setDisabled(1);
     player2Action3->setDisabled(1);
@@ -604,5 +612,16 @@ void MaFenetre::funcbeforedead()
     {
         LabelStickman1->setPixmap(*stickman1);
         LabelStickman2->setPixmap(*stickman2);
+    }
+}
+
+void MaFenetre::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_A)
+    {
+        if ((player1->isTurn()) && (player2->isTurn()==false))
+            funcplayer1Action1();
+        else if ((player2->isTurn()) && (player1->isTurn()==false))
+            funcplayer2Action1();
     }
 }
