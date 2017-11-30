@@ -84,3 +84,8 @@ void Mage::action3(Personnage &adversaire)
         mana+=25;
     vie -= contrecoup;
 }
+
+bool Mage::action2availible()
+{
+    return vie!=viemax;
+}

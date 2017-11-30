@@ -1,49 +1,49 @@
 -----Guerrier-----
 passif : regen de vie
-1] coup d'épée
-2] renforcement
-3] rage
-R] épée du jugement
+1] coup d'épée : frappe avec son épée
+2] renforcement : augmente son armure
+3] rage : consomme toute son armure et gagne 50% de cette dernière en bonus de dégats fixe 
+R] épée du jugement : au moins le guerrier  de vie au plus cette attaque fera de dégats
 PV: 6 000
 Mana : 0
 Armure : 50
 
 -----Mage-----
 passif : 
-1] boule de feu
-2] soin
-3] faux spectral
-R] libérationa rcanique
+1] boule de feu : lance une boule de feu
+2] soin : soigne le mage
+3] faux spectral : gros degats aléatoire a l'adversaire, a aussi un effet sur le mage, il se prend des degats ou est soigné
+R] libérationa rcanique : consome tout le mana et libère plusieurs frappes de mana sur 1 des deux joueurs, blesse l'enemi, soigne le mage
 PV: 3 000
 Mana : 500
 Armure : 0
 
 -----Sorcier-----
 passif : 
-1] drain vital
-2] sacrifice
-3] rayon sanguin
-R] rituel de sang
+1] drain vital : attaque et vol autant de vie que de degats infligé
+2] sacrifice : le sorcier perd la moitié de sa vie et inflige autant de degats
+3] rayon sanguin : frappe brute, ignore l'armure, degats fixe + % de pv totaux
+R] rituel de sang : Rècupère un % des points de vie perdu par les deux joueurs
 PV: 3 000
 Mana : 300
 Armure : 0
 
 -----Chaman----- 
 passif : quête totémique
-1] totem de feu
-2] totem de la nature
-3] totem obscure
-R] appel des esprits
+1] totem de feu : invoque un totem effèmère qui attaque une fois
+2] totem de la nature : soigne le chaman
+3] totem obscure : retire sur l'enemi (armure / mana / %pdv)
+R] appel des esprits : chaque totem utilisé durant la partie a stocké une charge qui va être libérer, 
 PV: 5 000
 Mana : 300
 Armure : 0
 
 -----Dueliste-----
-passif : 
-1] coup d'estoc
-2] parade
-3] sens aiguisé
-R] danse de lame
+passif : Double action 
+1] coup d'estoc : donne un coup de rapière
+2] parade : augmente l'esquive pour ce tour
+3] sens aiguisé : augmente les degats de manière definitive
+R] danse de lame : attaque un nombre de fois determiner par l'esquive du dueliste
 PV: 4 000
 Mana : 0
 Armure : 20

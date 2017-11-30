@@ -15,14 +15,17 @@ Personnage::Personnage(const string _nom, const carac _viemax, const carac _mana
 Personnage::~Personnage()
 {}
 
-void Personnage::action1(Personnage &adversaire)
-{}
+//void Personnage::action1(Personnage &adversaire)
+//{}
 
-void Personnage::action2(Personnage &adversaire)
-{}
+//void Personnage::action2(Personnage &adversaire)
+//{}
 
-void Personnage::action3(Personnage &adversaire)
-{}
+//void Personnage::action3(Personnage &adversaire)
+//{}
+
+//bool Personnage::action2availible()
+//{}
 
 void Personnage::cheatcode_s()
 {

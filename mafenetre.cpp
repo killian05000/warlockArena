@@ -501,10 +501,12 @@ void MaFenetre::endactionplayer1()
     {
         player2Action1->setEnabled(1);
         player2Action3->setEnabled(1);
+        if (player2->action2availible())
+            player2Action2->setEnabled(1);
     }
 
-    if((player2->getmana() !=0) && (player2->getvie() < player2->getviemax()) && (player2->getvie() != 0) && (player1->getvie() != 0))
-        player2Action2->setEnabled(1);
+//    if((player2->getmana() !=0) && (player2->getvie() < player2->getviemax()) && (player2->getvie() != 0) && (player1->getvie() != 0))
+//        player2Action2->setEnabled(1);
 }
 
 void MaFenetre::endactionplayer2()
@@ -521,10 +523,12 @@ void MaFenetre::endactionplayer2()
     {
         player1Action1->setEnabled(1);
         player1Action3->setEnabled(1);
+        if (player1->action2availible())
+            player1Action2->setEnabled(1);
     }
 
-    if((player1->getmana() != 0) && (player1->getvie() < player1->getviemax()) && (player1->getvie() !=0) && (player2->getvie() != 0))
-        player1Action2->setEnabled(1);
+//    if((player1->getmana() != 0) && (player1->getvie() < player1->getviemax()) && (player1->getvie() !=0) && (player2->getvie() != 0))
+//        player1Action2->setEnabled(1);
 }
 
 void MaFenetre::updatePlayerInfo()

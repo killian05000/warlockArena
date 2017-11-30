@@ -44,7 +44,8 @@ void Guerrier::action1(Personnage &adversaire)
 
 void Guerrier::action2(Personnage &adversaire)
 {
-    armure += 50;
+    if (armure < 500)
+        armure += 50;
 }
 
 void Guerrier::action3(Personnage &adversaire)
@@ -58,4 +59,9 @@ void Guerrier::action3(Personnage &adversaire)
         degats = adversaire.getvie();
     adversaire.setvie(adversaire.getvie()-degats);
     armure -= 50;
+}
+
+bool Guerrier::action2availible()
+{
+    return true;
 }

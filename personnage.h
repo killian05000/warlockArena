@@ -48,9 +48,11 @@ class Personnage
       Personnage(string _nom, const carac _viemax, const carac _manamax, const carac _armure);
       virtual ~Personnage();
 
-      virtual void action1(Personnage &adversaire);
-      virtual void action2(Personnage &adversaire);
-      virtual void action3(Personnage &adversaire);
+      virtual void action1(Personnage &adversaire) = 0;
+      virtual void action2(Personnage &adversaire) = 0;
+      virtual void action3(Personnage &adversaire) = 0;
+
+      virtual bool action2availible() = 0;
 
       void cheatcode_s();
       void cheatcode_os(Personnage &adversaire);

@@ -38,6 +38,8 @@ class Guerrier : public Personnage
         virtual void action1(Personnage &adversaire);
         virtual void action2(Personnage &adversaire);
         virtual void action3(Personnage &adversaire);
+
+        virtual bool action2availible();
 };
 
 #endif // DEF_GUERRIER
