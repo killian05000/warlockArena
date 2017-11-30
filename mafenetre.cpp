@@ -33,7 +33,6 @@ MaFenetre::MaFenetre(QWidget *parent)
     champSelectj2->addItem("Mage");
 
     boutonValider = new QPushButton("Valider", this);
-    boutonValider->setFont(QFont("Comic sans ms", 12));
     boutonValider->setStyleSheet("margin-top: 100px; padding: 3px; padding-left: 10px; padding-right: 10px;");
 
     //------------Images--------------//
@@ -176,17 +175,12 @@ MaFenetre::MaFenetre(QWidget *parent)
     setLayout(SLayout);
     SLayout->setCurrentIndex(0);
 
-//    GLayoutp1->addWidget(welcomeMessage, 0, 0, 2, 3);
-//    GLayoutp1->addLayout(FLayout, 2, 0, 1, 3);
-//    GLayoutp1->addWidget(boutonValider, 3, 0, 1, 3, Qt::AlignHCenter);
-
 
     GLayoutp1->addWidget(welcomeMessage, 0, 0, 2, 5);
     GLayoutp1->addLayout(FLayout, 2, 0, 2, 3);
     GLayoutp1->addWidget(boutonValider, 4, 0, 1, 5, Qt::AlignHCenter);
     GLayoutp1->addWidget(champSelectj1, 2, 3, 1, 2, Qt::AlignLeft);
     GLayoutp1->addWidget(champSelectj2, 3, 3, 1, 2, Qt::AlignLeft);
-
 
 
     GLayoutp2->addWidget(reset, 0, 5);
