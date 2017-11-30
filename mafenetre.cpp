@@ -209,10 +209,6 @@ MaFenetre::MaFenetre(QWidget *parent)
     //-------------------------Bontons utilisateur-----------------------------//
 
     connect(boutonValider, &QPushButton::clicked, this, &MaFenetre::createPlayers);
-//    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
-//    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
-//    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
-//    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
 
 
     connect(player1Action1, &QPushButton::clicked, this, &MaFenetre::funcplayer1Action1);
@@ -223,15 +219,6 @@ MaFenetre::MaFenetre(QWidget *parent)
     connect(player2Action3, &QPushButton::clicked, this, &MaFenetre::funcplayer2Action3);
     connect(reset, &QPushButton::clicked, this, &MaFenetre::funcreset);
     connect(precedent, &QPushButton::clicked, this, &MaFenetre::funcprecedent);
-
-    //-------------------------endaction's connect------------------------------//
-
-    connect(player1Action1, &QPushButton::clicked, this, &MaFenetre::endactionplayer1);
-    connect(player2Action1, &QPushButton::clicked, this, &MaFenetre::endactionplayer2);
-    connect(player1Action2, &QPushButton::clicked, this, &MaFenetre::endactionplayer1);
-    connect(player2Action2, &QPushButton::clicked, this, &MaFenetre::endactionplayer2);
-    connect(player1Action3, &QPushButton::clicked, this, &MaFenetre::endactionplayer1);
-    connect(player2Action3, &QPushButton::clicked, this, &MaFenetre::endactionplayer2);
 
     //---------------------------Anim's connect---------------------------------//
 
@@ -305,10 +292,10 @@ void MaFenetre::createPlayers()
     player2Action3->setText(QString::fromStdString(player2->nomAction3));
     player2Action3->setToolTip(QString::fromStdString(player2->infobulleNomAction3));
 
-    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
-    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
-    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
-    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
+//    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
+//    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
+//    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
+//    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
 
     setnomplayer1();
     setnomplayer2();
@@ -424,16 +411,16 @@ void MaFenetre::funcplayer2Action1()
 void MaFenetre::funcplayer1Action2()
 {
     player1->action2(*player2);
-    //player1->manacost();
     timerj1Action2->start(100);
+    endactionplayer1();
     updatePlayerInfo();
 }
 
 void MaFenetre::funcplayer2Action2()
 {
     player2->action2(*player1);
-    //player2->manacost();
     timerj2Action2->start(100);
+    endactionplayer2();
     updatePlayerInfo();
 }
 
@@ -441,6 +428,7 @@ void MaFenetre::funcplayer1Action3()
 {
     player1->action3(*player2);
     timerj1Action3->start(100);
+    endactionplayer1();
     updatePlayerInfo();
 }
 
@@ -448,6 +436,7 @@ void MaFenetre::funcplayer2Action3()
 {
     player2->action3(*player1);
     timerj2Action3->start(100);
+    endactionplayer2();
     updatePlayerInfo();
 }
 
@@ -617,11 +606,28 @@ void MaFenetre::funcbeforedead()
 
 void MaFenetre::keyPressEvent(QKeyEvent *event)
 {
-    if (event->key() == Qt::Key_A)
+    if ((player1->getvie()!=0) && (player2->getvie()!=0))
     {
-        if ((player1->isTurn()) && (player2->isTurn()==false))
-            funcplayer1Action1();
-        else if ((player2->isTurn()) && (player1->isTurn()==false))
-            funcplayer2Action1();
+        if (event->key() == Qt::Key_A)
+        {
+            if ((player1->isTurn()) && (player2->isTurn()==false))
+                funcplayer1Action1();
+            else if ((player2->isTurn()) && (player1->isTurn()==false))
+                funcplayer2Action1();
+        }
+        if (event->key() == Qt::Key_Z)
+        {
+            if ((player1->isTurn()) && (player2->isTurn()==false))
+                funcplayer1Action2();
+            else if ((player2->isTurn()) && (player1->isTurn()==false))
+                funcplayer2Action2();
+        }
+        if (event->key() == Qt::Key_E)
+        {
+            if ((player1->isTurn()) && (player2->isTurn()==false))
+                funcplayer1Action3();
+            else if ((player2->isTurn()) && (player1->isTurn()==false))
+                funcplayer2Action3();
+        }
     }
 }
