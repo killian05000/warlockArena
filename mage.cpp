@@ -85,7 +85,17 @@ void Mage::action3(Personnage &adversaire)
     vie -= contrecoup;
 }
 
+bool Mage::action1availible()
+{
+    return true;
+}
+
 bool Mage::action2availible()
 {
     return vie!=viemax;
+}
+
+bool Mage::action3availible()
+{
+    return true;
 }

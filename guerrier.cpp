@@ -61,7 +61,17 @@ void Guerrier::action3(Personnage &adversaire)
     armure -= 50;
 }
 
+bool Guerrier::action1availible()
+{
+    return true;
+}
+
 bool Guerrier::action2availible()
+{
+    return true;
+}
+
+bool Guerrier::action3availible()
 {
     return true;
 }

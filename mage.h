@@ -40,7 +40,9 @@ class Mage : public Personnage
     virtual void action2(Personnage &adversaire);
     virtual void action3(Personnage &adversaire);
 
+    virtual bool action1availible();
     virtual bool action2availible();
+    virtual bool action3availible();
 };
 
 #endif // DEF_MAGE

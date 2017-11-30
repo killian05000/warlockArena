@@ -52,7 +52,9 @@ class Personnage
       virtual void action2(Personnage &adversaire) = 0;
       virtual void action3(Personnage &adversaire) = 0;
 
+      virtual bool action1availible() = 0;
       virtual bool action2availible() = 0;
+      virtual bool action3availible() = 0;
 
       void cheatcode_s();
       void cheatcode_os(Personnage &adversaire);
