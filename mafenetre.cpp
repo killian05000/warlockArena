@@ -461,10 +461,10 @@ void MaFenetre::funcreset()
 {
     player1->setvie(player1->getviemax());
     player1->setmana(player1->getmanamax());
-    player1->setarmure(player1->getarmure());
+    player1->setarmure(player1->getarmuremax());
     player2->setvie(player2->getviemax());
     player2->setmana(player2->getmanamax());
-    player2->setarmure(player2->getarmure());
+    player2->setarmure(player2->getarmuremax());
 
     player1Action1->setEnabled(1);
     player1Action2->setEnabled(1);
@@ -475,7 +475,6 @@ void MaFenetre::funcreset()
 
     LabelStickman1->setPixmap(*stickman1);
     LabelStickman2->setPixmap(*stickman2);
-
 
     funcquicommence();
     updatePlayerInfo();
@@ -573,6 +572,8 @@ void MaFenetre::updatePlayerInfo()
         //pdvj2->setStyleSheet("color : #FF0000");
     }
 
+//    if ((player1->getvie()==0) || (player2->getvie()==0))
+//        funcbeforedead();
     timerbeforedead->start(500);
 }
 
@@ -582,22 +583,22 @@ void MaFenetre::funcbeforedead()
     {
         LabelStickman1->setPixmap(*stickman1coffin);
         LabelStickman2->setPixmap(*stickman2coffin);
-        player1->setarmure(0);
-        player2->setarmure(0);
+//        player1->setarmure(0);
+//        player2->setarmure(0);
     }
     else if (player2->getvie() == 0)
     {
         LabelStickman1->setPixmap(*stickman1crown);
         LabelStickman2->setPixmap(*stickman2coffin);
-        player1->setarmure(0);
-        player2->setarmure(0);
+//        player1->setarmure(0);
+//        player2->setarmure(0);
     }
     else if (player1->getvie() == 0)
     {
         LabelStickman2->setPixmap(*stickman2crown);
         LabelStickman1->setPixmap(*stickman1coffin);
-        player1->setarmure(0);
-        player2->setarmure(0);
+//        player1->setarmure(0);
+//        player2->setarmure(0);
     }
     else
     {

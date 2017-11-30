@@ -3,13 +3,11 @@
 random_device Personnage::generator{};
 
 Personnage::Personnage(const string _nom, const carac _viemax, const carac _manamax, const carac _armure)
-          :nom(_nom), viemax(_viemax), manamax(_manamax), armure(_armure),
-           nomAction1("Attaquer"), infobulleNomAction1("Ocassione de 400 à 500 dommages"),
-           nomAction2("Soigner"), infobulleNomAction2("Soigne de 550 à 1250 hp et coute 100 pt de mana"),
-           nomAction3("Peine capitale"), infobulleNomAction3("Ocassione de 250 à 1100 degats et vous inflige aussi de -150 à 900 degats")
+          :nom(_nom), viemax(_viemax), manamax(_manamax), armuremax(_armure)
 {
     vie=viemax;
     mana=manamax;
+    armure=armuremax;
 }
 
 Personnage::~Personnage()
@@ -61,6 +59,11 @@ carac Personnage::getmana()const
 carac Personnage::getarmure()const
 {
     return armure;
+}
+
+carac Personnage::getarmuremax() const
+{
+    return armuremax;
 }
 
 string Personnage::getnom()const

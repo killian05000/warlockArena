@@ -61,10 +61,11 @@ class Personnage
 
       string getnom()const;
       carac getvie()const;
-      carac getmana()const;
       carac getviemax()const;
+      carac getmana()const;
       carac getmanamax()const;
       carac getarmure()const;
+      carac getarmuremax()const;
 
       void setnom(string _nom);
       void setvie(carac _vie);
