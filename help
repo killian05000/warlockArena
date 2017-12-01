@@ -1,17 +1,20 @@
+
+                                                             --------WARLOCK ARENA--------
+
 -----Guerrier-----
 passif : regen de vie
-1] coup d'épée : frappe avec son épée
-2] renforcement : augmente son armure
-3] rage : consomme toute son armure et gagne 50% de cette dernière en bonus de dégats fixe 
-R] épée du jugement : au moins le guerrier  de vie au plus cette attaque fera de dégats
+1] coup d'épée : frappe avec son épée (300-400)
+2] renforcement : augmente son armure (50 && < 400)
+3] rage : consomme toute son armure et gagne un % de cette dernière en bonus de dégats fixe (50%)
+R] épée du jugement : au moins le guerrier  de vie au plus cette attaque fera de dégats (200+(viemax-vie)/6)
 PV: 6 000
 Mana : 0
 Armure : 50
 
 -----Mage-----
 passif : 
-1] boule de feu : lance une boule de feu
-2] soin : soigne le mage
+1] boule de feu : lance une boule de feu (300-600)
+2] soin : soigne le mage (200+(150-750))
 3] faux spectral : gros degats aléatoire a l'adversaire, a aussi un effet sur le mage, il se prend des degats ou est soigné
 R] libérationa rcanique : consome tout le mana et libère plusieurs frappes de mana sur 1 des deux joueurs, blesse l'enemi, soigne le mage
 PV: 3 000
