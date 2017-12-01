@@ -44,6 +44,8 @@ class Personnage
       string infobulleNomAction2;
       string nomAction3;
       string infobulleNomAction3;
+      string nomAction4;
+      string infobulleNomAction4;
 
 
       Personnage(string _nom, const carac _viemax, const carac _manamax, const carac _armure);
@@ -52,10 +54,12 @@ class Personnage
       virtual void action1(Personnage &adversaire) = 0;
       virtual void action2(Personnage &adversaire) = 0;
       virtual void action3(Personnage &adversaire) = 0;
+      virtual void action4(Personnage &adversaire) = 0;
 
       virtual bool action1availible() = 0;
       virtual bool action2availible() = 0;
       virtual bool action3availible() = 0;
+      virtual bool action4availible() = 0;
 
       void cheatcode_s();
       void cheatcode_os(Personnage &adversaire);

@@ -35,11 +35,13 @@ class MaFenetre : public QWidget
         void setnomplayer2();
 
         void funcplayer1Action1();
-        void funcplayer2Action1();
         void funcplayer1Action2();
-        void funcplayer2Action2();
         void funcplayer1Action3();
+        void funcplayer1Action4();
+        void funcplayer2Action1();
+        void funcplayer2Action2();
         void funcplayer2Action3();
+        void funcplayer2Action4();
 
         void endactionplayer1();
         void endactionplayer2();
@@ -137,11 +139,14 @@ class MaFenetre : public QWidget
         //----Boutons utilisateur----//
 
         QPushButton *player1Action1;
-        QPushButton *player2Action1;
         QPushButton *player1Action2;
-        QPushButton *player2Action2;
         QPushButton *player1Action3;
+        QPushButton *player1Action4;
+
+        QPushButton *player2Action1;        
+        QPushButton *player2Action2;
         QPushButton *player2Action3;
+        QPushButton *player2Action4;
 
         QPushButton *reset;
         QPushButton *precedent;

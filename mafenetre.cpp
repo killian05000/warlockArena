@@ -134,25 +134,14 @@ MaFenetre::MaFenetre(QWidget *parent)
     //----------Les compétences------------//
 
     player1Action1 = new QPushButton(this);
-//    player1Action1->setText(QString::fromStdString(player1->nomAction1));
-//    player1Action1->setToolTip(QString::fromStdString(player1->infobulleNomAction1));
-    player2Action1 = new QPushButton(this);
-//    player2Action1->setText(QString::fromStdString(player2->nomAction1));
-//    player2Action1->setToolTip(QString::fromStdString(player2->infobulleNomAction1));
-
     player1Action2 = new QPushButton(this);
-//    player1Action2->setText(QString::fromStdString(player1->nomAction2));
-//    player1Action2->setToolTip(QString::fromStdString(player1->infobulleNomAction2));
-    player2Action2 = new QPushButton(this);
-//    player2Action2->setText(QString::fromStdString(player2->nomAction2));
-//    player2Action2->setToolTip(QString::fromStdString(player2->infobulleNomAction2));
-
     player1Action3 = new QPushButton(this);
-//    player1Action3->setText(QString::fromStdString(player1->nomAction3));
-//    player1Action3->setToolTip(QString::fromStdString(player1->infobulleNomAction3));
+    player1Action4 = new QPushButton(this);
+
+    player2Action1 = new QPushButton(this);
+    player2Action2 = new QPushButton(this);
     player2Action3 = new QPushButton(this);
-//    player2Action3->setText(QString::fromStdString(player2->nomAction3));
-//    player2Action3->setToolTip(QString::fromStdString(player2->infobulleNomAction3));
+    player2Action4 = new QPushButton(this);
 
     reset = new QPushButton("recommencer", this);
     precedent = new QPushButton(" précédent ", this);
@@ -200,11 +189,13 @@ MaFenetre::MaFenetre(QWidget *parent)
     GLayoutp2->addWidget(manabarj1, 8, 1, 4, 1);
     GLayoutp2->addWidget(manabarj2, 8, 5, 4, 1, Qt::AlignRight);
     GLayoutp2->addWidget(player1Action1, 12, 2);
-    GLayoutp2->addWidget(player2Action1, 12, 4);
     GLayoutp2->addWidget(player1Action2, 13, 2);
-    GLayoutp2->addWidget(player2Action2, 13, 4);
     GLayoutp2->addWidget(player1Action3, 14, 2);
+    GLayoutp2->addWidget(player1Action4, 15, 2);
+    GLayoutp2->addWidget(player2Action1, 12, 4);
+    GLayoutp2->addWidget(player2Action2, 13, 4);
     GLayoutp2->addWidget(player2Action3, 14, 4);
+    GLayoutp2->addWidget(player2Action4, 15, 4);
 
     //-------------------------Bontons utilisateur-----------------------------//
 
@@ -212,11 +203,14 @@ MaFenetre::MaFenetre(QWidget *parent)
 
 
     connect(player1Action1, &QPushButton::clicked, this, &MaFenetre::funcplayer1Action1);
-    connect(player2Action1, &QPushButton::clicked, this, &MaFenetre::funcplayer2Action1);
     connect(player1Action2, &QPushButton::clicked, this, &MaFenetre::funcplayer1Action2);
-    connect(player2Action2, &QPushButton::clicked, this, &MaFenetre::funcplayer2Action2);
     connect(player1Action3, &QPushButton::clicked, this, &MaFenetre::funcplayer1Action3);
+    connect(player1Action4, &QPushButton::clicked, this, &MaFenetre::funcplayer1Action4);
+    connect(player2Action1, &QPushButton::clicked, this, &MaFenetre::funcplayer2Action1);
+    connect(player2Action2, &QPushButton::clicked, this, &MaFenetre::funcplayer2Action2);
     connect(player2Action3, &QPushButton::clicked, this, &MaFenetre::funcplayer2Action3);
+    connect(player2Action4, &QPushButton::clicked, this, &MaFenetre::funcplayer2Action4);
+
     connect(reset, &QPushButton::clicked, this, &MaFenetre::funcreset);
     connect(precedent, &QPushButton::clicked, this, &MaFenetre::funcprecedent);
 
@@ -284,6 +278,8 @@ void MaFenetre::createPlayers()
     player1Action2->setToolTip(QString::fromStdString(player1->infobulleNomAction2));
     player1Action3->setText(QString::fromStdString(player1->nomAction3));
     player1Action3->setToolTip(QString::fromStdString(player1->infobulleNomAction3));
+    player1Action4->setText(QString::fromStdString(player1->nomAction4));
+    player1Action4->setToolTip(QString::fromStdString(player1->infobulleNomAction4));
 
     player2Action1->setText(QString::fromStdString(player2->nomAction1));
     player2Action1->setToolTip(QString::fromStdString(player2->infobulleNomAction1));
@@ -291,6 +287,8 @@ void MaFenetre::createPlayers()
     player2Action2->setToolTip(QString::fromStdString(player2->infobulleNomAction2));
     player2Action3->setText(QString::fromStdString(player2->nomAction3));
     player2Action3->setToolTip(QString::fromStdString(player2->infobulleNomAction3));
+    player2Action4->setText(QString::fromStdString(player2->nomAction4));
+    player2Action4->setToolTip(QString::fromStdString(player2->infobulleNomAction4));
 
 //    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
 //    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
@@ -400,27 +398,11 @@ void MaFenetre::funcplayer1Action1()
     updatePlayerInfo();
 }
 
-void MaFenetre::funcplayer2Action1()
-{
-    player2->action1(*player1);
-    timerj2Action1->start(100);
-    endactionplayer2();
-    updatePlayerInfo();
-}
-
 void MaFenetre::funcplayer1Action2()
 {
     player1->action2(*player2);
     timerj1Action2->start(100);
     endactionplayer1();
-    updatePlayerInfo();
-}
-
-void MaFenetre::funcplayer2Action2()
-{
-    player2->action2(*player1);
-    timerj2Action2->start(100);
-    endactionplayer2();
     updatePlayerInfo();
 }
 
@@ -432,9 +414,41 @@ void MaFenetre::funcplayer1Action3()
     updatePlayerInfo();
 }
 
+void MaFenetre::funcplayer1Action4()
+{
+    player1->action4(*player2);
+    timerj1Action3->start(100);
+    endactionplayer1();
+    updatePlayerInfo();
+}
+
+void MaFenetre::funcplayer2Action1()
+{
+    player2->action1(*player1);
+    timerj2Action1->start(100);
+    endactionplayer2();
+    updatePlayerInfo();
+}
+
+void MaFenetre::funcplayer2Action2()
+{
+    player2->action2(*player1);
+    timerj2Action2->start(100);
+    endactionplayer2();
+    updatePlayerInfo();
+}
+
 void MaFenetre::funcplayer2Action3()
 {
     player2->action3(*player1);
+    timerj2Action3->start(100);
+    endactionplayer2();
+    updatePlayerInfo();
+}
+
+void MaFenetre::funcplayer2Action4()
+{
+    player2->action4(*player1);
     timerj2Action3->start(100);
     endactionplayer2();
     updatePlayerInfo();
@@ -460,9 +474,11 @@ void MaFenetre::funcreset()
     player1Action1->setEnabled(1);
     player1Action2->setEnabled(1);
     player1Action3->setEnabled(1);
+    player2Action4->setEnabled(1);
     player2Action1->setEnabled(1);
     player2Action2->setEnabled(1);
     player2Action3->setEnabled(1);
+    player2Action4->setEnabled(1);
 
     LabelStickman1->setPixmap(*stickman1);
     LabelStickman2->setPixmap(*stickman2);
@@ -479,10 +495,12 @@ void MaFenetre::endactionplayer1()
     player1Action1->setDisabled(1);
     player1Action2->setDisabled(1);
     player1Action3->setDisabled(1);
+    player1Action4->setDisabled(1);
 
     player2Action1->setDisabled(1);
     player2Action2->setDisabled(1);
     player2Action3->setDisabled(1);
+    player2Action4->setDisabled(1);
 
     if ((player2->getvie() !=0) && (player1->getvie() != 0))
     {
@@ -492,6 +510,8 @@ void MaFenetre::endactionplayer1()
             player2Action2->setEnabled(1);
         if (player2->action3availible())
             player2Action3->setEnabled(1);
+        if (player2->action4availible())
+            player2Action4->setEnabled(1);
     }
 }
 
@@ -503,10 +523,12 @@ void MaFenetre::endactionplayer2()
     player2Action1->setDisabled(1);
     player2Action2->setDisabled(1);
     player2Action3->setDisabled(1);
+    player2Action4->setDisabled(1);
 
     player1Action1->setDisabled(1);
     player1Action2->setDisabled(1);
     player1Action3->setDisabled(1);
+    player1Action4->setDisabled(1);
 
     if ((player1->getvie() != 0) && (player2->getvie() != 0))
     {
@@ -516,6 +538,8 @@ void MaFenetre::endactionplayer2()
             player1Action2->setEnabled(1);
         if (player1->action3availible())
             player1Action3->setEnabled(1);
+        if (player1->action4availible())
+            player1Action4->setEnabled(1);
     }
 }
 

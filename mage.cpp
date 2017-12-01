@@ -24,6 +24,8 @@ Mage::Mage()
     nomAction3="Aura ténébreuse";
     infobulleNomAction3="Ocassione de 250 à 1100 degats et vous inflige"
                         " aussi de -150 à 900 degats";
+    nomAction4="Libération arcanique";
+    infobulleNomAction4="Ocassione 2000 dégats";
 }
 
 Mage::~Mage()
@@ -85,6 +87,12 @@ void Mage::action3(Personnage &adversaire)
     vie -= contrecoup;
 }
 
+void Mage::action4(Personnage &adversaire)
+{
+    carac degats = 2000;
+    adversaire.setvie(adversaire.getvie()-degats);
+}
+
 bool Mage::action1availible()
 {
     return true;
@@ -96,6 +104,11 @@ bool Mage::action2availible()
 }
 
 bool Mage::action3availible()
+{
+    return true;
+}
+
+bool Mage::action4availible()
 {
     return true;
 }

@@ -24,6 +24,8 @@ Guerrier::Guerrier()
     nomAction3="Epée celeste";
     infobulleNomAction3="Ocassione des degats équivalent a 1/6 de la "
                         "vie manquante et retire 75 d'armure";
+    nomAction4="Epée du jugement";
+    infobulleNomAction4="Ocassione 200 dégats";
 }
 
 Guerrier::~Guerrier()
@@ -61,6 +63,12 @@ void Guerrier::action3(Personnage &adversaire)
     armure -= 50;
 }
 
+void Guerrier::action4(Personnage &adversaire)
+{
+    carac degats = 200;
+    adversaire.setvie(adversaire.getvie()-degats);
+}
+
 bool Guerrier::action1availible()
 {
     return true;
@@ -72,6 +80,11 @@ bool Guerrier::action2availible()
 }
 
 bool Guerrier::action3availible()
+{
+    return true;
+}
+
+bool Guerrier::action4availible()
 {
     return true;
 }
