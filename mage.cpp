@@ -48,7 +48,6 @@ void Mage::action2(Personnage &adversaire)
 {
     uniform_int_distribution<int> distribution(150,750);
     carac soin = distribution(generator)+200;
-
     int manacost=100;
 
     if (mana < 100)
@@ -66,14 +65,8 @@ void Mage::action2(Personnage &adversaire)
 void Mage::action3(Personnage &adversaire)
 {
     uniform_int_distribution<int> distribution(50,950);
-    carac degats = distribution(generator)+200;
-    if(degats > adversaire.getarmure())
-        degats -= adversaire.getarmure();
-    else
-        degats = 0;
-    if(degats > adversaire.getvie())
-        degats = adversaire.getvie();
-    adversaire.setvie(adversaire.getvie()-degats);
+    carac dmg = distribution(generator)+200;
+    adversaire.decreasevie(dmg+degats);
 
 
     uniform_int_distribution<int> distribution2(-150,950);
@@ -89,8 +82,18 @@ void Mage::action3(Personnage &adversaire)
 
 void Mage::action4(Personnage &adversaire)
 {
-    carac degats = 2000;
-    adversaire.setvie(adversaire.getvie()-degats);
+    carac dmg = 50;
+    carac nbc = mana/10;
+    for (int i=0; i<nbc; ++i)
+    {
+        uniform_int_distribution<int> distribution2(1,2);
+        carac who = distribution2(generator);
+
+        if (who==1)
+            adversaire.decreasevie(dmg+degats);
+        else if (who==2)
+            decreasevie(dmg+degats);
+    }
 }
 
 bool Mage::action1availible()

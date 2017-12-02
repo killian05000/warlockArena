@@ -467,9 +467,11 @@ void MaFenetre::funcreset()
     player1->setvie(player1->getviemax());
     player1->setmana(player1->getmanamax());
     player1->setarmure(player1->getarmuremax());
+    player1->setdegats(0);
     player2->setvie(player2->getviemax());
     player2->setmana(player2->getmanamax());
     player2->setarmure(player2->getarmuremax());
+    player2->setdegats(0);
 
     player1Action1->setEnabled(1);
     player1Action2->setEnabled(1);

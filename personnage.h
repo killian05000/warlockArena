@@ -18,6 +18,7 @@ class Personnage
       carac manamax;
       carac armure;
       carac armuremax;
+      carac degats;
       carac turn;
 
     public:
@@ -71,12 +72,15 @@ class Personnage
       carac getmanamax()const;
       carac getarmure()const;
       carac getarmuremax()const;
+      carac getdegats() const;
 
       void setnom(string _nom);
       void setvie(carac _vie);
+      void decreasevie(carac _dmg);
       void setmana(carac _mana);
       void setarmure(carac _armure);
-      void setbonus(carac _bonus);
+      void setdegats(carac _degats);
+      void increasedegats(carac _degats);
 
       bool isTurn();
       void setIsTurn(bool T);

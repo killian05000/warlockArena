@@ -18,14 +18,15 @@ Guerrier::Guerrier()
     S2C=":/Files/Images/Guerrier/stickman2Coffin.jpg";
 
     nomAction1="Attaquer";
-    infobulleNomAction1="Ocassione de 400 à 500 dommages";
+    infobulleNomAction1="Ocassione de 400 à 500 degats";
     nomAction2="renforcement";
     infobulleNomAction2="Augmente votre armure de 50";
     nomAction3="Epée celeste";
-    infobulleNomAction3="Ocassione des degats équivalent a 1/6 de la "
-                        "vie manquante et retire 75 d'armure";
+    infobulleNomAction3="Consomme l'armure et gagne des dégats"
+                        "suplémentaire égaux a 50%";
     nomAction4="Epée du jugement";
-    infobulleNomAction4="Ocassione 200 dégats";
+    infobulleNomAction4="Ocassione des degats équivalent a 1/6 de la "
+                        "vie manquante et retire 75 d'armure";
 }
 
 Guerrier::~Guerrier()
@@ -34,14 +35,8 @@ Guerrier::~Guerrier()
 void Guerrier::action1(Personnage &adversaire)
 {
     uniform_int_distribution<int> distribution(0,100);
-    carac degats = distribution(generator)+400;
-    if(degats > adversaire.getarmure())
-        degats -= adversaire.getarmure();
-    else
-        degats = 0;
-    if(degats > adversaire.getvie())
-        degats = adversaire.getvie();
-    adversaire.setvie(adversaire.getvie()-degats);
+    carac dmg = distribution(generator)+400;
+    adversaire.decreasevie(50+degats);
 }
 
 void Guerrier::action2(Personnage &adversaire)
@@ -52,21 +47,18 @@ void Guerrier::action2(Personnage &adversaire)
 
 void Guerrier::action3(Personnage &adversaire)
 {
-    carac degats = ((viemax-vie)/6)+200;
-    if (degats > adversaire.getarmure())
-        degats -= adversaire.getarmure();
-    else
-        degats = 0;
-    if (degats > adversaire.getvie())
-        degats = adversaire.getvie();
-    adversaire.setvie(adversaire.getvie()-degats);
-    armure -= 50;
+    if (armure > 0)
+    {
+        degats += armure/2;
+        armure = 0;
+    }
 }
 
 void Guerrier::action4(Personnage &adversaire)
 {
-    carac degats = 200;
-    adversaire.setvie(adversaire.getvie()-degats);
+    carac dmg = ((viemax-vie)/6)+200;
+    adversaire.decreasevie(dmg+degats);
+    armure -= 50;
 }
 
 bool Guerrier::action1availible()
