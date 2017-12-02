@@ -653,5 +653,12 @@ void MaFenetre::keyPressEvent(QKeyEvent *event)
             else if ((player2->isTurn()) && (player1->isTurn()==false))
                 funcplayer2Action3();
         }
+        if (event->key() == Qt::Key_R)
+        {
+            if ((player1->isTurn()) && (player2->isTurn()==false))
+                funcplayer1Action4();
+            else if ((player2->isTurn()) && (player1->isTurn()==false))
+                funcplayer2Action4();
+        }
     }
 }
