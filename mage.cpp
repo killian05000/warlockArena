@@ -104,7 +104,7 @@ bool Mage::action1availible()
 
 bool Mage::action2availible()
 {
-    return vie!=viemax;
+    return (vie!=viemax && mana>=100);
 }
 
 bool Mage::action3availible()
