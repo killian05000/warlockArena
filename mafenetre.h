@@ -27,7 +27,7 @@ class MaFenetre : public QWidget
     public:
         explicit MaFenetre(QWidget *parent = 0);
 
-    public slots:
+    public: // public slots:
 
         void createPlayers();
 

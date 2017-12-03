@@ -19,7 +19,8 @@ class Personnage
       carac armure;
       carac armuremax;
       carac degats;
-      carac turn;
+      static double turn;
+      bool isTurn;
 
     public:
 
@@ -82,7 +83,10 @@ class Personnage
       void setdegats(carac _degats);
       void increasedegats(carac _degats);
 
-      bool isTurn();
+      static double getTurn();
+      static void increaseTurn(double _turnValue);
+      static void decreaseTurn(double _turnValue);
+      bool getIsTurn();
       void setIsTurn(bool T);
 };
 

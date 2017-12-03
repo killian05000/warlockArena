@@ -36,7 +36,7 @@ void Guerrier::action1(Personnage &adversaire)
 {
     uniform_int_distribution<int> distribution(0,100);
     carac dmg = distribution(generator)+400;
-    adversaire.decreasevie(50+degats);
+    adversaire.decreasevie(dmg+degats);
 }
 
 void Guerrier::action2(Personnage &adversaire)
@@ -78,5 +78,5 @@ bool Guerrier::action3availible()
 
 bool Guerrier::action4availible()
 {
-    return true;
+    return turn>=3;
 }

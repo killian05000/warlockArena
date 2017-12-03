@@ -354,6 +354,7 @@ void MaFenetre::funcquicommence()
         endactionplayer2();
     else
         endactionplayer1();
+    Personnage::decreaseTurn(0.5);
 }
 
 void MaFenetre::setnomplayer1()
@@ -472,6 +473,7 @@ void MaFenetre::funcreset()
     player2->setmana(player2->getmanamax());
     player2->setarmure(player2->getarmuremax());
     player2->setdegats(0);
+    Personnage::decreaseTurn(Personnage::getTurn());
 
     player1Action1->setEnabled(1);
     player1Action2->setEnabled(1);
@@ -504,6 +506,8 @@ void MaFenetre::endactionplayer1()
     player2Action3->setDisabled(1);
     player2Action4->setDisabled(1);
 
+    Personnage::increaseTurn(0.5);
+
     if ((player2->getvie() !=0) && (player1->getvie() != 0))
     {
         if (player2->action1availible())
@@ -532,6 +536,8 @@ void MaFenetre::endactionplayer2()
     player1Action3->setDisabled(1);
     player1Action4->setDisabled(1);
 
+    Personnage::increaseTurn(0.5);
+
     if ((player1->getvie() != 0) && (player2->getvie() != 0))
     {
         if (player1->action1availible())
@@ -558,7 +564,7 @@ void MaFenetre::updatePlayerInfo()
     displayPseudo2->setText(QString::fromStdString(player2->getnom()));
     pdvj2->setText(QString::number(player2->getvie()));
     manaj2->setText(QString::number(player2->getmana()));
-    armurej2->setText(QString::number(player2->getarmure()));
+    armurej2->setText(QString::number(Personnage::getTurn()));
     affectpdvbarj2();
     affectmanabarj2();
 
@@ -636,30 +642,30 @@ void MaFenetre::keyPressEvent(QKeyEvent *event)
     {
         if (event->key() == Qt::Key_A)
         {
-            if ((player1->isTurn()) && (player2->isTurn()==false))
+            if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action1availible()))
                 funcplayer1Action1();
-            else if ((player2->isTurn()) && (player1->isTurn()==false))
+            else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action1availible()))
                 funcplayer2Action1();
         }
         if (event->key() == Qt::Key_Z)
         {
-            if ((player1->isTurn()) && (player2->isTurn()==false))
+            if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action2availible()))
                 funcplayer1Action2();
-            else if ((player2->isTurn()) && (player1->isTurn()==false))
+            else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action2availible()))
                 funcplayer2Action2();
         }
         if (event->key() == Qt::Key_E)
         {
-            if ((player1->isTurn()) && (player2->isTurn()==false))
+            if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action3availible()))
                 funcplayer1Action3();
-            else if ((player2->isTurn()) && (player1->isTurn()==false))
+            else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action3availible()))
                 funcplayer2Action3();
         }
         if (event->key() == Qt::Key_R)
         {
-            if ((player1->isTurn()) && (player2->isTurn()==false))
+            if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action4availible()))
                 funcplayer1Action4();
-            else if ((player2->isTurn()) && (player1->isTurn()==false))
+            else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action4availible()))
                 funcplayer2Action4();
         }
     }

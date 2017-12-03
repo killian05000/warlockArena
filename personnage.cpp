@@ -2,6 +2,8 @@
 
 random_device Personnage::generator{};
 
+double Personnage::turn=0;
+
 Personnage::Personnage(const string _nom, const carac _viemax, const carac _manamax, const carac _armure)
           :nom(_nom), viemax(_viemax), manamax(_manamax), armuremax(_armure)
 {
@@ -104,12 +106,27 @@ void Personnage::increasedegats(carac _degats)
     degats += _degats;
 }
 
-bool Personnage::isTurn()
+double Personnage::getTurn()
 {
     return turn;
 }
 
+void Personnage::increaseTurn(double _turnValue)
+{
+    turn+=_turnValue;
+}
+
+void Personnage::decreaseTurn(double _turnValue)
+{
+    turn-=_turnValue;
+}
+
+bool Personnage::getIsTurn()
+{
+    return isTurn;
+}
+
 void Personnage::setIsTurn(bool T)
 {
-    turn = T;
+    isTurn = T;
 }

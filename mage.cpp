@@ -94,6 +94,7 @@ void Mage::action4(Personnage &adversaire)
         else if (who==2)
             decreasevie(dmg+degats);
     }
+    mana = 0;
 }
 
 bool Mage::action1availible()
@@ -113,5 +114,5 @@ bool Mage::action3availible()
 
 bool Mage::action4availible()
 {
-    return true;
+    return turn>=3;
 }
