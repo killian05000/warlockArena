@@ -50,3 +50,14 @@ R] danse de lame : attaque un nombre de fois determiner par l'esquive du duelist
 PV: 4 000
 Mana : 0
 Armure : 20
+
+
+                                                             --------Rules--------
+
+
+Personnage : vie/mana/armure
+
+1/2/3] Attaques de bases, 1 tour de relance
+R] Stands for ultimate. Peux seulement être utilisé a partir du 3ème tour avec un délai de relance, peut avoir des conditions de lancer et des délais de relance  différent en fonction de la classe.
+
+
