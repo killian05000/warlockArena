@@ -86,6 +86,7 @@ class Personnage
       static double getTurn();
       static void increaseTurn(double _turnValue);
       static void decreaseTurn(double _turnValue);
+      static void setTurn(double _turnValue);
       bool getIsTurn();
       void setIsTurn(bool T);
 };

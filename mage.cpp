@@ -114,5 +114,5 @@ bool Mage::action3availible()
 
 bool Mage::action4availible()
 {
-    return turn>=3;
+    return turn>=4;
 }

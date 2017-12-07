@@ -78,5 +78,5 @@ bool Guerrier::action3availible()
 
 bool Guerrier::action4availible()
 {
-    return turn>=3;
+    return turn>=4;
 }

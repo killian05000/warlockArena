@@ -90,6 +90,7 @@ class MaFenetre : public QWidget
 
         QLabel *displayPseudo1;
         QLabel *displayPseudo2;
+        QLabel *turncounter;
 
         //----Partie Animation----//
 

@@ -46,6 +46,10 @@ MaFenetre::MaFenetre(QWidget *parent)
     displayPseudo2 = new QLabel(this);
     displayPseudo2->setAlignment(Qt::AlignCenter);
 
+    turncounter = new QLabel(this);
+    turncounter->setAlignment(Qt::AlignCenter);
+    turncounter->setFont(QFont("Sketch Block", 40));
+
     pdvj1 = new QLabel(this);
     pdvj1->setStyleSheet("color: #FF0000");
     pdvbarj1 = new QProgressBar(this);
@@ -159,6 +163,7 @@ MaFenetre::MaFenetre(QWidget *parent)
     GLayoutp2->addWidget(precedent, 0, 1);
     GLayoutp2->addWidget(displayPseudo1, 1, 2);
     GLayoutp2->addWidget(displayPseudo2, 1, 4);
+    GLayoutp2->addWidget(turncounter,0,3, Qt::AlignBaseline);
     GLayoutp2->addWidget(LabelStickman1, 2, 2, 10, 1);
     GLayoutp2->addWidget(LabelStickman2, 2, 4, 10, 1);
     GLayoutp2->addWidget(pdvj1, 2, 1);
@@ -448,7 +453,7 @@ void MaFenetre::funcreset()
     player2->setmana(player2->getmanamax());
     player2->setarmure(player2->getarmuremax());
     player2->setdegats(0);
-    Personnage::decreaseTurn(Personnage::getTurn());
+    Personnage::setTurn(1);
 
     player1Action1->setEnabled(1);
     player1Action2->setEnabled(1);
@@ -539,41 +544,38 @@ void MaFenetre::updatePlayerInfo()
     displayPseudo2->setText(QString::fromStdString(player2->getnom()));
     pdvj2->setText(QString::number(player2->getvie()));
     manaj2->setText(QString::number(player2->getmana()));
-    armurej2->setText(QString::number(Personnage::getTurn()));
+    armurej2->setText(QString::number(player2->getarmure()));
     affectpdvbarj2();
     affectmanabarj2();
+
+    if (Personnage::getTurn()-int(Personnage::getTurn())==0)
+        turncounter->setText(QString::number(Personnage::getTurn()));
 
     if((((double)player1->getvie()/player1->getviemax())*100.) >= 60.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #3ADF00;");
-        //pdvj1->setStyleSheet("color : #3ADF00");
     }
     if((((double)player2->getvie()/player2->getviemax())*100.) >= 60.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #3ADF00;");
-        //pdvj2->setStyleSheet("color : #3ADF00");
     }
 
     if((((double)player1->getvie()/player1->getviemax())*100.) < 60.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #FFFF00;");
-        //pdvj1->setStyleSheet("color : #FFFF00");
     }
     if((((double)player2->getvie()/player2->getviemax())*100.) < 60.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #FFFF00;");
-        //pdvj2->setStyleSheet("color : #FFFF00");
     }
 
     if((((double)player1->getvie()/player1->getviemax())*100.) < 25.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #FF0000;");
-        //pdvj1->setStyleSheet("color : #FF0000");
     }
     if((((double)player2->getvie()/player2->getviemax())*100.) < 25.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #FF0000;");
-        //pdvj2->setStyleSheet("color : #FF0000");
     }
 
 //    if ((player1->getvie()==0) || (player2->getvie()==0))
@@ -594,15 +596,11 @@ void MaFenetre::funcbeforedead()
     {
         LabelStickman1->setPixmap(*stickman1crown);
         LabelStickman2->setPixmap(*stickman2coffin);
-//        player1->setarmure(0);
-//        player2->setarmure(0);
     }
     else if (player1->getvie() == 0)
     {
         LabelStickman2->setPixmap(*stickman2crown);
         LabelStickman1->setPixmap(*stickman1coffin);
-//        player1->setarmure(0);
-//        player2->setarmure(0);
     }
     else
     {
