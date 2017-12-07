@@ -9,8 +9,6 @@ MaFenetre::MaFenetre(QWidget *parent)
     welcomeMessage->setAlignment(Qt::AlignCenter);
     welcomeMessage->setFont(QFont("Sketch Block", 30));
 
-    //Guerrier player1("", 4000, 500, 0);
-
     pseudo1 = new QLineEdit;
     pseudo1->setMaxLength(20);
     pseudo1->setFixedWidth(pseudo1->sizeHint().width());
@@ -38,22 +36,7 @@ MaFenetre::MaFenetre(QWidget *parent)
     //------------Images--------------//
 
     LabelStickman1 = new QLabel(this);
-//    stickman1 = new QPixmap(QString::fromStdString(player1->S1P));
-//    stickman1animAction1 = new QPixmap(QString::fromStdString(player1->S1APA1));
-//    stickman1animAction2 = new QPixmap(QString::fromStdString(player1->S1APA2));
-//    stickman1animAction3 = new QPixmap(QString::fromStdString(player1->S1APA3));
-//    stickman1crown = new QPixmap(QString::fromStdString(player1->S1PC));
-//    stickman1coffin = new QPixmap(QString::fromStdString(player1->S1C));
-//    LabelStickman1->setPixmap(*stickman1);
-
     LabelStickman2= new QLabel(this);
-//    stickman2 = new QPixmap(QString::fromStdString(player2->S2P));
-//    stickman2animAction1 = new QPixmap(QString::fromStdString(player2->S2APA1));
-//    stickman2animAction2 = new QPixmap(QString::fromStdString(player2->S2APA2));
-//    stickman2animAction3 = new QPixmap(QString::fromStdString(player2->S2APA3));
-//    stickman2crown = new QPixmap(QString::fromStdString(player2->S2PC));
-//    stickman2coffin = new QPixmap(QString::fromStdString(player2->S2C));
-//    LabelStickman2->setPixmap(*stickman2);
 
     //--------Affichage des carac-------//
 
@@ -68,13 +51,13 @@ MaFenetre::MaFenetre(QWidget *parent)
     pdvbarj1 = new QProgressBar(this);
     pdvbarj1->setOrientation(Qt::Vertical);
     pdvbarj1->setStyleSheet("selection-background-color: #3ADF00;");
-//    pdvbarj1->setMaximum(player1->getviemax());
+
     manaj1 = new QLabel(this);
     manaj1->setStyleSheet("color : #357AB7");
     manabarj1 = new QProgressBar(this);
     manabarj1->setOrientation(Qt::Vertical);
     manabarj1->setStyleSheet("selection-background-color: #357AB7");
-//    manabarj1->setMaximum(player1->getmanamax());
+
     armurej1 = new QLabel(this);
     armurej1->setStyleSheet("color: #FF8000;");
 
@@ -84,14 +67,14 @@ MaFenetre::MaFenetre(QWidget *parent)
     pdvbarj2 = new QProgressBar(this);
     pdvbarj2->setOrientation(Qt::Vertical);
     pdvbarj2->setStyleSheet("selection-background-color: #3ADF00;");
-//    pdvbarj2->setMaximum(player2->getviemax());
+
     manaj2 = new QLabel(this);
     manaj2->setStyleSheet("color : #357AB7");
     manaj2->setAlignment(Qt::AlignRight);
     manabarj2 = new QProgressBar(this);
     manabarj2->setOrientation(Qt::Vertical);
     manabarj2->setStyleSheet("selection-background-color: #357AB7");
-//    manabarj2->setMaximum(player2->getmanamax());
+
     armurej2 = new QLabel(this);
     armurej2->setAlignment(Qt::AlignRight);
     armurej2->setStyleSheet("color : #FF8000");
@@ -199,8 +182,8 @@ MaFenetre::MaFenetre(QWidget *parent)
 
     //-------------------------Bontons utilisateur-----------------------------//
 
+    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::createPlayers);
     connect(boutonValider, &QPushButton::clicked, this, &MaFenetre::createPlayers);
-
 
     connect(player1Action1, &QPushButton::clicked, this, &MaFenetre::funcplayer1Action1);
     connect(player1Action2, &QPushButton::clicked, this, &MaFenetre::funcplayer1Action2);
@@ -230,9 +213,6 @@ MaFenetre::MaFenetre(QWidget *parent)
     connect(timerj2Action3, &QTimer::timeout, this, &MaFenetre::funcanimj2Action3);
     connect(timerj2Action3off, &QTimer::timeout, this, &MaFenetre::updatePlayerInfo);
     connect(timerbeforedead, &QTimer::timeout, this, &MaFenetre::funcbeforedead);
-
-    //funcquicommence();
-    //updatePlayerInfo();
 }
 
 void MaFenetre::createPlayers()
@@ -289,11 +269,6 @@ void MaFenetre::createPlayers()
     player2Action3->setToolTip(QString::fromStdString(player2->infobulleNomAction3));
     player2Action4->setText(QString::fromStdString(player2->nomAction4));
     player2Action4->setToolTip(QString::fromStdString(player2->infobulleNomAction4));
-
-//    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
-//    connect(pseudo1, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
-//    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer2);
-//    connect(pseudo2, &QLineEdit::returnPressed, this, &MaFenetre::setnomplayer1);
 
     setnomplayer1();
     setnomplayer2();
@@ -638,35 +613,38 @@ void MaFenetre::funcbeforedead()
 
 void MaFenetre::keyPressEvent(QKeyEvent *event)
 {
-    if ((player1->getvie()!=0) && (player2->getvie()!=0))
+    if ((event->key() == Qt::Key_A) || (event->key() == Qt::Key_Z) || (event->key() == Qt::Key_E) || (event->key() == Qt::Key_R))
     {
-        if (event->key() == Qt::Key_A)
+        if ((player1->getvie()!=0) && (player2->getvie()!=0))
         {
-            if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action1availible()))
-                funcplayer1Action1();
-            else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action1availible()))
-                funcplayer2Action1();
-        }
-        if (event->key() == Qt::Key_Z)
-        {
-            if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action2availible()))
-                funcplayer1Action2();
-            else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action2availible()))
-                funcplayer2Action2();
-        }
-        if (event->key() == Qt::Key_E)
-        {
-            if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action3availible()))
-                funcplayer1Action3();
-            else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action3availible()))
-                funcplayer2Action3();
-        }
-        if (event->key() == Qt::Key_R)
-        {
-            if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action4availible()))
-                funcplayer1Action4();
-            else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action4availible()))
-                funcplayer2Action4();
+            if (event->key() == Qt::Key_A)
+            {
+                if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action1availible()))
+                    funcplayer1Action1();
+                else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action1availible()))
+                    funcplayer2Action1();
+            }
+            if (event->key() == Qt::Key_Z)
+            {
+                if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action2availible()))
+                    funcplayer1Action2();
+                else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action2availible()))
+                    funcplayer2Action2();
+            }
+            if (event->key() == Qt::Key_E)
+            {
+                if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action3availible()))
+                    funcplayer1Action3();
+                else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action3availible()))
+                    funcplayer2Action3();
+            }
+            if (event->key() == Qt::Key_R)
+            {
+                if ((player1->getIsTurn()) && (player2->getIsTurn()==false) && (player1->action4availible()))
+                    funcplayer1Action4();
+                else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action4availible()))
+                    funcplayer2Action4();
+            }
         }
     }
 }
