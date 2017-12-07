@@ -556,27 +556,26 @@ void MaFenetre::updatePlayerInfo()
         pdvbarj1->setStyleSheet("selection-background-color: #3ADF00;");
         pdvj1->setStyleSheet("color : #3ADF00");
     }
-    if((((double)player2->getvie()/player2->getviemax())*100.) >= 60.)
-    {
-        pdvbarj2->setStyleSheet("selection-background-color: #3ADF00;");
-        pdvj2->setStyleSheet("color : #3ADF00");
-    }
-
     if((((double)player1->getvie()/player1->getviemax())*100.) < 60.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #FFFF00;");
         pdvj1->setStyleSheet("color : #FFFF00");
     }
-    if((((double)player2->getvie()/player2->getviemax())*100.) < 60.)
-    {
-        pdvbarj2->setStyleSheet("selection-background-color: #FFFF00;");
-        pdvj2->setStyleSheet("color : #FFFF00");
-    }
-
     if((((double)player1->getvie()/player1->getviemax())*100.) < 25.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #FF0000;");
         pdvj1->setStyleSheet("color : #FF0000");
+    }
+
+    if((((double)player2->getvie()/player2->getviemax())*100.) >= 60.)
+    {
+        pdvbarj2->setStyleSheet("selection-background-color: #3ADF00;");
+        pdvj2->setStyleSheet("color : #3ADF00");
+    }
+    if((((double)player2->getvie()/player2->getviemax())*100.) < 60.)
+    {
+        pdvbarj2->setStyleSheet("selection-background-color: #FFFF00;");
+        pdvj2->setStyleSheet("color : #FFFF00");
     }
     if((((double)player2->getvie()/player2->getviemax())*100.) < 25.)
     {
