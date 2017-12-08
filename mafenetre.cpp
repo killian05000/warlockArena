@@ -161,9 +161,9 @@ MaFenetre::MaFenetre(QWidget *parent)
 
     GLayoutp2->addWidget(reset, 0, 5);
     GLayoutp2->addWidget(precedent, 0, 1);
-    GLayoutp2->addWidget(turncounter, 0, 3, 2, 1, Qt::AlignHCenter);
-    GLayoutp2->addWidget(displayPseudo1, 1, 2);
-    GLayoutp2->addWidget(displayPseudo2, 1, 4);
+    GLayoutp2->addWidget(turncounter, 0, 2, 2, 3);
+    GLayoutp2->addWidget(displayPseudo1, 1, 2, 1, 1);
+    GLayoutp2->addWidget(displayPseudo2, 1, 4, 1, 1);
     GLayoutp2->addWidget(LabelStickman1, 2, 2, 10, 1);
     GLayoutp2->addWidget(LabelStickman2, 2, 4, 10, 1);
     GLayoutp2->addWidget(pdvj1, 2, 1);
