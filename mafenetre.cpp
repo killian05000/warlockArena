@@ -551,40 +551,41 @@ void MaFenetre::updatePlayerInfo()
     if (Personnage::getTurn()-int(Personnage::getTurn())==0)
         turncounter->setText(QString::number(Personnage::getTurn()));
 
+    pdvj1->setStyleSheet("color : #3ADF00");
+    pdvj2->setStyleSheet("color : #3ADF00");
+
     if((((double)player1->getvie()/player1->getviemax())*100.) >= 60.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #3ADF00;");
-        pdvj1->setStyleSheet("color : #3ADF00");
+        //pdvj1->setStyleSheet("color : #3ADF00");
     }
     if((((double)player1->getvie()/player1->getviemax())*100.) < 60.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #FFFF00;");
-        pdvj1->setStyleSheet("color : #FFFF00");
+        //pdvj1->setStyleSheet("color : #FFAE0d");
     }
     if((((double)player1->getvie()/player1->getviemax())*100.) < 25.)
     {
         pdvbarj1->setStyleSheet("selection-background-color: #FF0000;");
-        pdvj1->setStyleSheet("color : #FF0000");
+        //pdvj1->setStyleSheet("color : #FF0000");
     }
 
     if((((double)player2->getvie()/player2->getviemax())*100.) >= 60.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #3ADF00;");
-        pdvj2->setStyleSheet("color : #3ADF00");
+        //pdvj2->setStyleSheet("color : #3ADF00");
     }
     if((((double)player2->getvie()/player2->getviemax())*100.) < 60.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #FFFF00;");
-        pdvj2->setStyleSheet("color : #FFFF00");
+        //pdvj2->setStyleSheet("color : #FFAE0d");
     }
     if((((double)player2->getvie()/player2->getviemax())*100.) < 25.)
     {
         pdvbarj2->setStyleSheet("selection-background-color: #FF0000;");
-        pdvj2->setStyleSheet("color : #FF0000");
+        //pdvj2->setStyleSheet("color : #FF0000");
     }
 
-//    if ((player1->getvie()==0) || (player2->getvie()==0))
-//        funcbeforedead();
     timerbeforedead->start(500);
 }
 
@@ -594,8 +595,6 @@ void MaFenetre::funcbeforedead()
     {
         LabelStickman1->setPixmap(*stickman1coffin);
         LabelStickman2->setPixmap(*stickman2coffin);
-//        player1->setarmure(0);
-//        player2->setarmure(0);
     }
     else if (player2->getvie() == 0)
     {
@@ -616,7 +615,7 @@ void MaFenetre::funcbeforedead()
 
 void MaFenetre::keyPressEvent(QKeyEvent *event)
 {
-    if ((event->key() == Qt::Key_A) || (event->key() == Qt::Key_Z) || (event->key() == Qt::Key_E) || (event->key() == Qt::Key_R))
+    if ((event->key() == Qt::Key_A) || (event->key() == Qt::Key_Z) || (event->key() == Qt::Key_E) || (event->key() == Qt::Key_R) || (event->key() == Qt::Key_P))
     {
         if ((player1->getvie()!=0) && (player2->getvie()!=0))
         {
@@ -648,6 +647,11 @@ void MaFenetre::keyPressEvent(QKeyEvent *event)
                 else if ((player2->getIsTurn()) && (player1->getIsTurn()==false) && (player2->action4availible()))
                     funcplayer2Action4();
             }
+        }
+
+        if (event->key() == Qt::Key_P)
+        {
+            funcreset();
         }
     }
 }
