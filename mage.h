@@ -2,6 +2,7 @@
 #define DEF_MAGE
 
 #include "personnage.h"
+#include <mafenetre.h>
 
 
 class Mage : public Personnage

@@ -1,4 +1,5 @@
 #include "mage.h"
+#include "QThread"
 
 Mage::Mage()
     :Personnage("", 4000, 500, 0)
@@ -88,11 +89,12 @@ void Mage::action4(Personnage &adversaire)
     {
         uniform_int_distribution<int> distribution2(1,2);
         carac who = distribution2(generator);
-
+        QThread::msleep(30);
         if (who==1)
             adversaire.decreasevie(dmg+degats);
         else if (who==2)
             decreasevie(dmg+degats);
+        MaFenetre::updatePlayerInfo();
     }
     mana = 0;
 }

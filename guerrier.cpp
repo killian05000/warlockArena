@@ -22,7 +22,7 @@ Guerrier::Guerrier()
     nomAction2="renforcement";
     infobulleNomAction2="Augmente votre armure de 50";
     nomAction3="Epée celeste";
-    infobulleNomAction3="Consomme l'armure et gagne des dégats"
+    infobulleNomAction3="Consomme l'armure et gagne des dégats "
                         "suplémentaire égaux a 50%";
     nomAction4="Epée du jugement";
     infobulleNomAction4="Ocassione des degats équivalent a 1/6 de la "
