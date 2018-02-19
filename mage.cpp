@@ -45,7 +45,7 @@ void Mage::action1(Personnage &adversaire)
     adversaire.setvie(adversaire.getvie()-degats);
 }
 
-void Mage::action2(Personnage &adversaire)
+void Mage::action2(Personnage *)  // on specifie pas comme ça on a pas un "unused parameter "adversaire"
 {
     uniform_int_distribution<int> distribution(150,750);
     carac soin = distribution(generator)+200;
@@ -63,11 +63,11 @@ void Mage::action2(Personnage &adversaire)
     mana -= manacost;
 }
 
-void Mage::action3(Personnage &adversaire)
+void Mage::action3(Personnage *adversaire) // on peut specifier si on a besoin alors que Guerrier::action3 n'utilise pas d'adversaire
 {
     uniform_int_distribution<int> distribution(50,950);
     carac dmg = distribution(generator)+200;
-    adversaire.decreasevie(dmg+degats);
+    adversaire->decreasevie(dmg+degats);
 
 
     uniform_int_distribution<int> distribution2(-150,950);
@@ -94,7 +94,7 @@ void Mage::action4(Personnage &adversaire)
             adversaire.decreasevie(dmg+degats);
         else if (who==2)
             decreasevie(dmg+degats);
-        MaFenetre::updatePlayerInfo();
+        //MaFenetre::updatePlayerInfo();
     }
     mana = 0;
 }

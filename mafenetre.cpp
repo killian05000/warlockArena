@@ -381,7 +381,7 @@ void MaFenetre::funcplayer1Action1()
 
 void MaFenetre::funcplayer1Action2()
 {
-    player1->action2(*player2);
+    player1->action2(player2);
     timerj1Action2->start(100);
     endactionplayer1();
     updatePlayerInfo();
@@ -389,7 +389,7 @@ void MaFenetre::funcplayer1Action2()
 
 void MaFenetre::funcplayer1Action3()
 {
-    player1->action3(*player2);
+    player1->action3(player2);
     timerj1Action3->start(100);
     endactionplayer1();
     updatePlayerInfo();
@@ -413,7 +413,7 @@ void MaFenetre::funcplayer2Action1()
 
 void MaFenetre::funcplayer2Action2()
 {
-    player2->action2(*player1);
+    player2->action2(player1);
     timerj2Action2->start(100);
     endactionplayer2();
     updatePlayerInfo();
@@ -421,7 +421,7 @@ void MaFenetre::funcplayer2Action2()
 
 void MaFenetre::funcplayer2Action3()
 {
-    player2->action3(*player1);
+    player2->action3(player1);
     timerj2Action3->start(100);
     endactionplayer2();
     updatePlayerInfo();

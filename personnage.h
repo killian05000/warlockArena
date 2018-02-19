@@ -54,8 +54,8 @@ class Personnage
       virtual ~Personnage();
 
       virtual void action1(Personnage &adversaire) = 0;
-      virtual void action2(Personnage &adversaire) = 0;
-      virtual void action3(Personnage &adversaire) = 0;
+      virtual void action2(Personnage *adversaire = nullptr) = 0;
+      virtual void action3(Personnage *adversaire = nullptr) = 0;
       virtual void action4(Personnage &adversaire) = 0;
 
       virtual bool action1availible() = 0;

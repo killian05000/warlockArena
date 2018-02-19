@@ -39,13 +39,13 @@ void Guerrier::action1(Personnage &adversaire)
     adversaire.decreasevie(dmg+degats);
 }
 
-void Guerrier::action2(Personnage &adversaire)
+void Guerrier::action2(Personnage *) // on specifie pas comme ça on a pas un "unused parameter "adversaire"
 {
     if (armure < 500)
         armure += 50;
 }
 
-void Guerrier::action3(Personnage &adversaire)
+void Guerrier::action3(Personnage *) // on specifie pas comme ça on a pas un "unused parameter "adversaire"
 {
     if (armure > 0)
     {

@@ -16,8 +16,8 @@ class Mage : public Personnage
         virtual ~Mage();
 
         virtual void action1(Personnage &adversaire);
-        virtual void action2(Personnage &adversaire);
-        virtual void action3(Personnage &adversaire);
+        virtual void action2(Personnage *adversaire = nullptr);
+        virtual void action3(Personnage *adversaire = nullptr);
         virtual void action4(Personnage &adversaire);
 
         virtual bool action1availible();
